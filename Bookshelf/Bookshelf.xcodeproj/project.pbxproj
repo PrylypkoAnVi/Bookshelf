@@ -20,6 +20,7 @@
 		5D37FD9F2991297F009242AF /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37FD9E2991297F009242AF /* SearchScreenViewController.swift */; };
 		5D37FDA129912991009242AF /* SearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37FDA029912991009242AF /* SearchScreenViewModel.swift */; };
 		5D37FDA629912E43009242AF /* BookFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37FDA529912E43009242AF /* BookFound.swift */; };
+		5D37FDA82991354E009242AF /* SearchScreenDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37FDA72991354E009242AF /* SearchScreenDestination.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		5D37FD9E2991297F009242AF /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		5D37FDA029912991009242AF /* SearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewModel.swift; sourceTree = "<group>"; };
 		5D37FDA529912E43009242AF /* BookFound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFound.swift; sourceTree = "<group>"; };
+		5D37FDA72991354E009242AF /* SearchScreenDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenDestination.swift; sourceTree = "<group>"; };
 		7FEF505C072DCEB6F2CD71A2 /* Pods-Bookshelf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookshelf.debug.xcconfig"; path = "Target Support Files/Pods-Bookshelf/Pods-Bookshelf.debug.xcconfig"; sourceTree = "<group>"; };
 		E368727D70016E0C23B557D2 /* Pods-Bookshelf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookshelf.release.xcconfig"; path = "Target Support Files/Pods-Bookshelf/Pods-Bookshelf.release.xcconfig"; sourceTree = "<group>"; };
 		E6B9E31D4E2412D1E77E4ED1 /* Pods_Bookshelf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookshelf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 				5D37FD9A29912955009242AF /* SearchScreen.storyboard */,
 				5D37FD9C2991296C009242AF /* SearchScreenView.swift */,
 				5D37FD9E2991297F009242AF /* SearchScreenViewController.swift */,
+				5D37FDA72991354E009242AF /* SearchScreenDestination.swift */,
 				5D37FDA029912991009242AF /* SearchScreenViewModel.swift */,
 			);
 			path = SearchScreen;
@@ -300,6 +303,7 @@
 				5D37FD94299128AC009242AF /* AppRouter.swift in Sources */,
 				5D37FD96299128BE009242AF /* StoryboardLoadable.swift in Sources */,
 				5D37FD7B29912491009242AF /* AppDelegate.swift in Sources */,
+				5D37FDA82991354E009242AF /* SearchScreenDestination.swift in Sources */,
 				5D37FD9F2991297F009242AF /* SearchScreenViewController.swift in Sources */,
 				5D37FD9029912872009242AF /* Container.swift in Sources */,
 				5D37FDA629912E43009242AF /* BookFound.swift in Sources */,
@@ -373,6 +377,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSMainStoryboardFile = SearchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = SearchScreen;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -428,6 +434,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSMainStoryboardFile = SearchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = SearchScreen;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -451,7 +459,7 @@
 				INFOPLIST_FILE = Bookshelf/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = SearchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -481,7 +489,7 @@
 				INFOPLIST_FILE = Bookshelf/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = SearchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

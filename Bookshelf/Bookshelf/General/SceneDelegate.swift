@@ -19,15 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         register(AppRouter(window: window), for: Router.self)
         registerObjects()
-        let firstDestination = LoginScreenDestination()
+        let firstDestination = SearchScreenDestination()
         resolve(Router.self).route(to: firstDestination)
     }
 
     private func registerObjects() {
-        let networkManager = NetworkManager()
-        register(networkManager, for: NetworkManager.self)
-        let userManager = UserManager()
-        register(userManager, for: UserManager.self)
+        
     }
 
 }
