@@ -35,11 +35,22 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
         super.viewDidLoad()
         tableView?.delegate = self
         tableView?.dataSource = self
+        addBindsToViewModel()
     }
     
     deinit {
         print("Deinit: \(Self.self)")
     }
     
+    private func addBindsToViewModel() {
+        searchBar?.rx.text
+            .orEmpty
+            .bind(onNext: { smthn in
+                self.viewModel.searchTextObservable.accept(smthn)
+                print(smthn)
+                print(self.viewModel.searchTextObservable.value)
+            }).disposed(by: disposeBag)
+        
+    }
 }
     
