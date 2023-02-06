@@ -16,18 +16,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ny-iS-TkF">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="4ny-iS-TkF">
+                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-9P-uNA">
+                                <rect key="frame" x="0.0" y="95" width="414" height="767"/>
+                                <color key="backgroundColor" red="0.77976076689999996" green="0.01410180732" blue="0.01719925865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="KBW-WM-sfo" customClass="SearchScreenTableViewCell" customModule="Bookshelf" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KBW-WM-sfo" id="Wim-wa-E2w">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XPH-9P-uNA" secondAttribute="bottom" id="7ea-gy-rGu"/>
+                            <constraint firstItem="4ny-iS-TkF" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Lat-gP-L2G"/>
+                            <constraint firstItem="XPH-9P-uNA" firstAttribute="top" secondItem="4ny-iS-TkF" secondAttribute="bottom" id="Rsc-s6-vZj"/>
+                            <constraint firstItem="4ny-iS-TkF" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="bVY-6C-6Ty"/>
+                            <constraint firstItem="4ny-iS-TkF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="v0w-u1-Ygu"/>
+                            <constraint firstItem="XPH-9P-uNA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="x6L-40-Ovm"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XPH-9P-uNA" secondAttribute="trailing" id="zoc-5D-WTW"/>
+                        </constraints>
                         <connections>
-                            <outlet property="searchBar" destination="4ny-iS-TkF" id="wQG-Ad-T2J"/>
+                            <outlet property="searchBar" destination="4ny-iS-TkF" id="7Si-22-u4g"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="4ny-iS-TkF" id="hoW-e9-C3L"/>
+                        <outlet property="tableView" destination="XPH-9P-uNA" id="bzG-ZS-oBS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -35,6 +62,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
