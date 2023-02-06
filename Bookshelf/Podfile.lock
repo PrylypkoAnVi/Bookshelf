@@ -1,0 +1,38 @@
+PODS:
+  - Alamofire (5.6.4)
+  - PinLayout (1.10.2)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - XServiceLocator (1.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - PinLayout
+  - RxCocoa
+  - RxSwift
+  - XServiceLocator
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - PinLayout
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - XServiceLocator
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  PinLayout: d6b1960e4b182b4da1481b9aa6728f621e20708d
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  XServiceLocator: c4dd6ec44fc0c9205326f230d21e890d077e806c
+
+PODFILE CHECKSUM: 948e180ef3fab61c7744915aa5375e68897d5b26
+
+COCOAPODS: 1.11.2
