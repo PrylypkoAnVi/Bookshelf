@@ -47,12 +47,9 @@
                             <constraint firstItem="XPH-9P-uNA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="x6L-40-Ovm"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XPH-9P-uNA" secondAttribute="trailing" id="zoc-5D-WTW"/>
                         </constraints>
-                        <connections>
-                            <outlet property="searchBar" destination="4ny-iS-TkF" id="7Si-22-u4g"/>
-                        </connections>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="4ny-iS-TkF" id="hoW-e9-C3L"/>
+                        <outlet property="searchBar" destination="4ny-iS-TkF" id="4zh-vd-gcI"/>
                         <outlet property="tableView" destination="XPH-9P-uNA" id="bzG-ZS-oBS"/>
                     </connections>
                 </viewController>
