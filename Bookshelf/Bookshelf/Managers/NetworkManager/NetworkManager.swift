@@ -12,24 +12,21 @@ import RxCocoa
 
 class NetworkManager {
     
-    var searchScreenViewModel: SearchScreenViewModel {
-        return resolve(SearchScreenViewModel.self)
-    }
+    var searchScreenViewModel: SearchScreenViewModel!
     var bookManager: BookManager {
         return resolve(BookManager.self)
     }
     let bookSearchURLFirst = "https://openlibrary.org/search.json?q="
     let bookSearchURLValue = BehaviorRelay<String?>(value: nil)
-//    let coverSearchURLFirst = "https://covers.openlibrary.org/b/id/"
-//    let coverSearchURLValue = BehaviorRelay<Int?>(value: nil)
-//    let coverSearchURLLast = ".jpg"
+
     private var disposeBag: DisposeBag = .init()
-    init() {
-        searchScreenViewModel.searchTextObservable.asObservable().map{$0.lowercased().replacingOccurrences(of: " ", with: "+")}.bind(to: bookSearchURLValue).disposed(by: disposeBag)
-//        bookManager.book.asObservable().map{$0?.0?.coverId}.bind(to: coverSearchURLValue).disposed(by: disposeBag)
-    }
+    
+//    init() {
+//        searchScreenViewModel.searchTextObservable.asObservable().map{$0.lowercased().replacingOccurrences(of: " ", with: "+")}.bind(to: bookSearchURLValue).disposed(by: disposeBag)
+//    }
     
     func getBook(completion: @escaping (BookFound?) -> Void, onFailure: @escaping (NetworkError) -> ()) {
+        searchScreenViewModel.searchTextObservable.asObservable().map{$0.lowercased().replacingOccurrences(of: " ", with: "+")}.bind(to: bookSearchURLValue).disposed(by: disposeBag)
         let bookSearchURL = bookSearchURLFirst + (bookSearchURLValue.value ?? "")
         let bookSearchRequest = AF.request(bookSearchURL, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: HTTPHeaders.default)
         

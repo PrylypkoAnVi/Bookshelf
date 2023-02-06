@@ -43,7 +43,8 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
     }
     
     private func addBindsToViewModel() {
-        if searchBar?.searchTextField.isEditing == false {
+        if searchBar?.searchTextField.isEditing == true {
+            searchBar?.resignFirstResponder()
             searchBar?.rx.text
                 .orEmpty
                 .bind(onNext: { smthn in
@@ -51,5 +52,7 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
                 }).disposed(by: disposeBag)
         }
     }
+    
+    override func
 }
     
