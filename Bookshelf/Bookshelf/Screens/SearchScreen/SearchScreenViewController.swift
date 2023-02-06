@@ -33,6 +33,8 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView?.delegate = self
+        tableView?.dataSource = self
     }
     
     deinit {

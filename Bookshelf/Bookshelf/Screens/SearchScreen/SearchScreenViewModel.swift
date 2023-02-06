@@ -10,5 +10,5 @@ import RxSwift
 import RxCocoa
 
 class SearchScreenViewModel {
-    
+    var searchTextObservable = BehaviorRelay<String>(value: "")
 }
