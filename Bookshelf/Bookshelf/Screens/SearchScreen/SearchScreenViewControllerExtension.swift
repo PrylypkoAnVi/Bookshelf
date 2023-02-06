@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource {
+extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.book.book.value?.title.count ?? 0
@@ -28,5 +28,15 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
             cell.bookCover.image = image
         }).disposed(by: disposeBag)
         return cell
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsSearchResultsButton = true
+        let disposeBag: DisposeBag = .init()
+        searchBar.rx.text
+            .orEmpty
+            .bind(onNext: { smthn in
+                self.viewModel.searchTextObservable.accept(smthn)
+            }).disposed(by: disposeBag)
     }
 }
