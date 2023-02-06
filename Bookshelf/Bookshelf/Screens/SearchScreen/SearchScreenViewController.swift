@@ -43,14 +43,13 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
     }
     
     private func addBindsToViewModel() {
-        searchBar?.rx.text
-            .orEmpty
-            .bind(onNext: { smthn in
-                self.viewModel.searchTextObservable.accept(smthn)
-                print(smthn)
-                print(self.viewModel.searchTextObservable.value)
-            }).disposed(by: disposeBag)
-        
+        if searchBar?.searchTextField.isEditing == false {
+            searchBar?.rx.text
+                .orEmpty
+                .bind(onNext: { smthn in
+                    self.viewModel.searchTextObservable.accept(smthn)
+                }).disposed(by: disposeBag)
+        }
     }
 }
     

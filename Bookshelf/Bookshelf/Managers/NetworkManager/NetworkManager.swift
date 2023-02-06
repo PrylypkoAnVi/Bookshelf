@@ -20,16 +20,16 @@ class NetworkManager {
     }
     let bookSearchURLFirst = "https://openlibrary.org/search.json?q="
     let bookSearchURLValue = BehaviorRelay<String?>(value: nil)
-    let coverSearchURLFirst = "https://covers.openlibrary.org/b/id/"
-    let coverSearchURLValue = BehaviorRelay<Int?>(value: nil)
-    let coverSearchURLLast = ".jpg"
+//    let coverSearchURLFirst = "https://covers.openlibrary.org/b/id/"
+//    let coverSearchURLValue = BehaviorRelay<Int?>(value: nil)
+//    let coverSearchURLLast = ".jpg"
     private var disposeBag: DisposeBag = .init()
     init() {
         searchScreenViewModel.searchTextObservable.asObservable().map{$0.lowercased().replacingOccurrences(of: " ", with: "+")}.bind(to: bookSearchURLValue).disposed(by: disposeBag)
-        bookManager.book.asObservable().map{$0?.0?.coverId}.bind(to: coverSearchURLValue).disposed(by: disposeBag)
+//        bookManager.book.asObservable().map{$0?.0?.coverId}.bind(to: coverSearchURLValue).disposed(by: disposeBag)
     }
     
-    func getBook(completion: @escaping (BookInfo?) -> Void, onFailure: @escaping (Error) -> ()) {
+    func getBook(completion: @escaping (BookFound?) -> Void, onFailure: @escaping (NetworkError) -> ()) {
         let bookSearchURL = bookSearchURLFirst + (bookSearchURLValue.value ?? "")
         let bookSearchRequest = AF.request(bookSearchURL, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: HTTPHeaders.default)
         
@@ -37,23 +37,17 @@ class NetworkManager {
             switch response.result {
             case .success(let data):
                 completion(data.docs.first.map{
-                    return BookInfo(title: $0.title, author: $0.authorName, publishYear: $0.firstPublishYear, numberOfPages: $0.numberOfPagesMedian, coverId: $0.coverI, firstSentense: $0.firstSentence)
+                    return BookFound(title: $0.title, author: $0.authorName, publishYear: $0.firstPublishYear, numberOfPages: $0.numberOfPagesMedian, coverId: $0.coverI, firstSentense: $0.firstSentence)
                 })
                 print(data.docs.first?.title)
             case .failure(_):
                 if response.data == nil {
-                    
+                    onFailure(NetworkError.noInternetConnection)
+                } else {
+                    onFailure(NetworkError.unexpected)
                 }
             }
         }
         
     }
-    
-    
-//    func getCover(completion: @escaping (BookCover?) -> Void, onFailure: @escaping (Error) -> ()) {
-//        let coverSearchURL = coverSearchURLFirst + "\(coverSearchURLValue.value)" + coverSearchURLLast
-//
-//    }
-    
-    
 }
