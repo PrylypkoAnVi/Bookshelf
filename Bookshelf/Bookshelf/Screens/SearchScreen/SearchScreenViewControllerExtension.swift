@@ -11,13 +11,15 @@ import RxSwift
 extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return viewModel.bookManager.book.value?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchScreenTableViewCell.cellId, for: indexPath) as? SearchScreenTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchScreenTableViewCell.cellId, for: indexPath) as? SearchScreenTableViewCell,
+              let data = viewModel.bookManager.book.value?[indexPath.row]
+        else {
             return UITableViewCell()
         }
-        cell.setData(viewModel.bookManager.book.value?[indexPath.row])
+        cell.setData(data)
         return cell
     }
 

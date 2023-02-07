@@ -13,32 +13,34 @@ class SearchScreenViewModel {
     
     //MARK: -
     //MARK: Properties
-    var image = BehaviorRelay<UIImage?>(value: UIImage())
+    
     var searchTextObservable = BehaviorRelay<String?>(value: nil)
-    var title = BehaviorRelay<String?>(value: nil)
-    var author = BehaviorRelay<String?>(value: nil)
-    var coverId = BehaviorRelay<Int?>(value: nil)
-    var book: BookFound {
-        return resolve(BookFound.self)
-    }
+
     var bookManager: BookManager {
         return resolve(BookManager.self)
     }
+    var networkManager: NetworkManager {
+        return resolve(NetworkManager.self)
+    }
+    var book = BehaviorRelay<[BookFound]>(value: [])
     var error = BehaviorRelay<String?>(value: nil)
     private var disposeBag: DisposeBag = .init()
     
     init() {
-        self.title.accept(book.title)
-        self.author.accept(book.author)
-        self.coverId.asObservable().map{ val in
-            guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(self.coverId.value)" + ".jpg"),
-                  let data = try? Data(contentsOf: url),
-                  let image = UIImage(data: data)
-            else {
-                return UIImage()
-            }
-            return image
-        }.bind(to: self.image).disposed(by: self.disposeBag)
+//        self.coverId.asObservable().map{ val in
+//            guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(self.coverId.value)" + ".jpg"),
+//                  let data = try? Data(contentsOf: url),
+//                  let image = UIImage(data: data)
+//            else {
+//                return UIImage()
+//            }
+//            return image
+//        }.bind(to: self.image).disposed(by: self.disposeBag)
+        searchTextObservable.asObservable().map{$0}.bind(to: networkManager.bookSearchURLValue).disposed(by: disposeBag)
+        searchTextObservable.asObservable().bind(with: self, onNext: { this, value in
+            guard (value?.count ?? 0) > 3 else { return }
+        }).disposed(by: disposeBag)
+        bookManager.book.asObservable().map{$0.unsafelyUnwrapped}.bind(to: self.book).disposed(by: disposeBag)
     }
     
     //MARK: -

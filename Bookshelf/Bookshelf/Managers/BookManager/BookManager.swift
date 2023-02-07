@@ -14,7 +14,7 @@ class BookManager {
     //MARK: -
     //MARK: Public Properties
     
-    public var book = BehaviorRelay<[BookFound]?>(value: nil)
+    public var book = BehaviorRelay<[BookFound]?>(value: [])
     public var failureMessage = BehaviorRelay<String?>(value: nil)
     
     //MARK: -
@@ -22,7 +22,7 @@ class BookManager {
     
     func getBook() {
         resolve(NetworkManager.self).getBook() { val in
-            self.book.accept(val)
+            self.book.accept(val ?? [])
         } onFailure: { error in
             self.failureMessage.accept(error.description)
         }

@@ -48,7 +48,7 @@ class SearchScreenTableViewCell: UITableViewCell {
     func setData(_ data: BookFound) {
         self.bookName.text = data.title
         self.bookAuthor.text = data.author
-        self.bookCover.image
+//        self.bookCover.image
     }
     
     override func prepareForReuse() {
