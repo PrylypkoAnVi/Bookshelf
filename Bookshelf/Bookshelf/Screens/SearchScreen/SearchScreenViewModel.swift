@@ -14,8 +14,8 @@ class SearchScreenViewModel {
     //MARK: -
     //MARK: Properties
     
-    var image = BehaviorRelay<UIImage>(value: UIImage())
-    var searchTextObservable = BehaviorRelay<String>(value: "")
+    var image = BehaviorRelay<UIImage?>(value: UIImage())
+    var searchTextObservable = BehaviorRelay<String?>(value: nil)
     var title = BehaviorRelay<String?>(value: nil)
     var author = BehaviorRelay<String?>(value: nil)
     var publishYear = BehaviorRelay<Int?>(value: nil)

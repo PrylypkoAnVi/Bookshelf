@@ -21,12 +21,11 @@ class NetworkManager {
 
     private var disposeBag: DisposeBag = .init()
     
-//    init() {
-//        searchScreenViewModel.searchTextObservable.asObservable().map{$0.lowercased().replacingOccurrences(of: " ", with: "+")}.bind(to: bookSearchURLValue).disposed(by: disposeBag)
-//    }
-    
     func getBook(completion: @escaping (BookFound?) -> Void, onFailure: @escaping (NetworkError) -> ()) {
-        searchScreenViewModel.searchTextObservable.asObservable().map{$0.lowercased().replacingOccurrences(of: " ", with: "+")}.bind(to: bookSearchURLValue).disposed(by: disposeBag)
+//        print(searchScreenViewModel.searchTextObservable.value ?? "")
+        searchScreenViewModel.searchTextObservable.asObservable()
+            .distinctUntilChanged()
+            .bind(to: bookSearchURLValue).disposed(by: disposeBag)
         let bookSearchURL = bookSearchURLFirst + (bookSearchURLValue.value ?? "")
         let bookSearchRequest = AF.request(bookSearchURL, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: HTTPHeaders.default)
         
