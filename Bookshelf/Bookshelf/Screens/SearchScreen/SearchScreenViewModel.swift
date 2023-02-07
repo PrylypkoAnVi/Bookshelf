@@ -22,7 +22,7 @@ class SearchScreenViewModel {
     var networkManager: NetworkManager {
         return resolve(NetworkManager.self)
     }
-    var book = BehaviorRelay<[BookFound]>(value: [])
+    var book = BehaviorRelay<[BookFound]?>(value: [])
     var error = BehaviorRelay<String?>(value: nil)
     private var disposeBag: DisposeBag = .init()
     
@@ -40,7 +40,7 @@ class SearchScreenViewModel {
         searchTextObservable.asObservable().bind(with: self, onNext: { this, value in
             guard (value?.count ?? 0) > 3 else { return }
         }).disposed(by: disposeBag)
-        bookManager.book.asObservable().map{$0.unsafelyUnwrapped}.bind(to: self.book).disposed(by: disposeBag)
+        bookManager.book.asObservable().map{$0}.bind(to: self.book).disposed(by: disposeBag)
     }
     
     //MARK: -

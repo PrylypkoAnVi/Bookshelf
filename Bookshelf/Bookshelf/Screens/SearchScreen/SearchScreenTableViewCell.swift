@@ -42,16 +42,29 @@ class SearchScreenTableViewCell: UITableViewCell {
     }()
     private var disposeBag: DisposeBag = .init()
     
+    var bookModel: SearchScreenViewModel {
+        return resolve(SearchScreenViewModel.self)
+    }
+    
+//    var getImage: (()->())?
+    
     //MARK: -
     //MARK: Methods
     
     func setData(_ data: BookFound) {
         self.bookName.text = data.title
         self.bookAuthor.text = data.author
-//        self.bookCover.image
+        guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(data.coverId)" + ".jpg") else { return }
+        self.bookCover.load(url: url)
+        
     }
     
+//    func setImage(_ image: UIImage) {
+//
+//    }
+    
     override func prepareForReuse() {
+        self.bookCover.image = nil
         super.prepareForReuse()
     }
     

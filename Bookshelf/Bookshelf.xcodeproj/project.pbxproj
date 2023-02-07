@@ -27,6 +27,7 @@
 		5D626F5229917DBF00957800 /* BookFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D626F5129917DBF00957800 /* BookFound.swift */; };
 		5D626F552991865E00957800 /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D626F542991865E00957800 /* BookManager.swift */; };
 		5D626F5829918E5E00957800 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D626F5729918E5E00957800 /* NetworkError.swift */; };
+		5DBE08272992A0E600B63445 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBE08262992A0E600B63445 /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		5D626F5129917DBF00957800 /* BookFound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFound.swift; sourceTree = "<group>"; };
 		5D626F542991865E00957800 /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
 		5D626F5729918E5E00957800 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		5DBE08262992A0E600B63445 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		7FEF505C072DCEB6F2CD71A2 /* Pods-Bookshelf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookshelf.debug.xcconfig"; path = "Target Support Files/Pods-Bookshelf/Pods-Bookshelf.debug.xcconfig"; sourceTree = "<group>"; };
 		E368727D70016E0C23B557D2 /* Pods-Bookshelf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookshelf.release.xcconfig"; path = "Target Support Files/Pods-Bookshelf/Pods-Bookshelf.release.xcconfig"; sourceTree = "<group>"; };
 		E6B9E31D4E2412D1E77E4ED1 /* Pods_Bookshelf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookshelf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,7 @@
 				5D37FD9129912877009242AF /* DI */,
 				5D626F5629918E3D00957800 /* Error */,
 				5D37FD9229912888009242AF /* Router */,
+				5DBE08262992A0E600B63445 /* UIImageViewExtension.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				5D626F4E2991707700957800 /* SearchScreenViewControllerExtension.swift in Sources */,
 				5D37FD9F2991297F009242AF /* SearchScreenViewController.swift in Sources */,
 				5D37FD9029912872009242AF /* Container.swift in Sources */,
+				5DBE08272992A0E600B63445 /* UIImageViewExtension.swift in Sources */,
 				5D37FDA629912E43009242AF /* BookFoundToDecode.swift in Sources */,
 				5D37FD9D2991296C009242AF /* SearchScreenView.swift in Sources */,
 				5D37FD7D29912491009242AF /* SceneDelegate.swift in Sources */,
