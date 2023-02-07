@@ -10,11 +10,7 @@ import Alamofire
 
 // MARK: - BookFound
 struct BookFoundToDecode: Codable {
-    let numFound, start: Int
-    let numFoundExact: Bool
     let docs: [Doc]
-    let bookFoundNumFound: Int
-    let q: String
 }
 
 // MARK: - Doc

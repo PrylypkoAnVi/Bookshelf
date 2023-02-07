@@ -41,12 +41,15 @@ class SearchScreenTableViewCell: UITableViewCell {
         return label
     }()
     private var disposeBag: DisposeBag = .init()
-    private var model: SearchScreenViewModel {
-        return resolve(SearchScreenViewModel.self)
-    }
     
     //MARK: -
     //MARK: Methods
+    
+    func setData(_ data: BookFound) {
+        self.bookName.text = data.title
+        self.bookAuthor.text = data.author
+        self.bookCover.image
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()

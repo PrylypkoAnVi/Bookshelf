@@ -14,7 +14,7 @@ class BookManager {
     //MARK: -
     //MARK: Public Properties
     
-    public var book = BehaviorRelay<BookFound?>(value: nil)
+    public var book = BehaviorRelay<[BookFound]?>(value: nil)
     public var failureMessage = BehaviorRelay<String?>(value: nil)
     
     //MARK: -

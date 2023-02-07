@@ -34,9 +34,6 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar?.delegate = self
-        searchBar?.barStyle = .default
-        searchBar?.showsCancelButton = false
-        searchBar?.showsSearchResultsButton = true
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView?.register(SearchScreenTableViewCell.self, forCellReuseIdentifier: SearchScreenTableViewCell.cellId)
@@ -46,26 +43,13 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
     deinit {
         print("Deinit: \(Self.self)")
     }
-    
-    private func search() {
-//        viewModel.setData()
-    }
-    
+ 
     private func addBinding() {
-//        searchBar?.rx.text
-//            .orEmpty
-//            .bind(onNext: { smthn in
-//                self.viewModel.searchTextObservable.accept(smthn.lowercased().replacingOccurrences(of: " ", with: "+"))
-//                print(smthn)
-//                print(self.viewModel.searchTextObservable.value.map{$0})
-//            }).disposed(by: disposeBag)
         searchBar?.searchTextField.rx.text
             .orEmpty
             .bind(onNext: { smthn in
                 self.viewModel.searchTextObservable.accept(smthn.lowercased().replacingOccurrences(of: " ", with: "+"))
-//                print(smthn)
-//                print(self.viewModel.searchTextObservable.value.map{$0})
-            
+                print(self.viewModel.searchTextObservable.value.map{$0})
             }).disposed(by: disposeBag)
     }
                      
