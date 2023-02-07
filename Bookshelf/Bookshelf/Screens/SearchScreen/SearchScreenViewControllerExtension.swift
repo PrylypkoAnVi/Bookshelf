@@ -31,12 +31,12 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsSearchResultsButton = true
-        let disposeBag: DisposeBag = .init()
-        searchBar.rx.text
-            .orEmpty
-            .bind(onNext: { smthn in
-                self.viewModel.searchTextObservable.accept(smthn)
-            }).disposed(by: disposeBag)
+        searchBar.resignFirstResponder()
+//        let disposeBag: DisposeBag = .init()
+//        searchBar.rx.text
+//            .orEmpty
+//            .bind(onNext: { smthn in
+//                self.viewModel.searchTextObservable.accept(smthn)
+//            }).disposed(by: disposeBag)
     }
 }

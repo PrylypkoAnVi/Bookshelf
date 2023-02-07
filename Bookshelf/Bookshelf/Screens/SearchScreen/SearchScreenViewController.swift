@@ -34,24 +34,25 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar?.delegate = self
+        searchBar?.barStyle = .default
+        searchBar?.showsCancelButton = false
+        searchBar?.showsSearchResultsButton = true
         tableView?.delegate = self
         tableView?.dataSource = self
-        addBindsToViewModel()
+        search()
     }
     
     deinit {
         print("Deinit: \(Self.self)")
     }
     
-    private func addBindsToViewModel() {
-//        if searchBar?.searchTextField.isEditing == true {
-//            searchBar?.resignFirstResponder()
-//            searchBar?.rx.text
-//                .orEmpty
-//                .bind(onNext: { smthn in
-//                    self.viewModel.searchTextObservable.accept(smthn)
-//                }).disposed(by: disposeBag)
-//        }
+    private func search() {
+        viewModel.setData()
+        searchBar?.rx.text
+            .orEmpty
+            .bind(onNext: { smthn in
+                self.viewModel.searchTextObservable.accept(smthn)
+            }).disposed(by: disposeBag)
     }
                      
 }
