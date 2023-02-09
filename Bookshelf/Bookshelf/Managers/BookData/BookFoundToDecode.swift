@@ -18,7 +18,7 @@ struct Doc: Codable {
     let title: String?
     let firstPublishYear: Int?
     let numberOfPagesMedian: Int?
-    let coverI: Int?
+    let coverId: Int?
     let firstSentence: [String]?
     let authorName: [String]?
     
@@ -27,7 +27,7 @@ struct Doc: Codable {
             case title
             case firstPublishYear = "first_publish_year"
             case numberOfPagesMedian = "number_of_pages_median"
-            case coverI = "cover_i"
+            case coverId = "cover_i"
             case firstSentence = "first_sentence"
             case authorName = "author_name"
         }

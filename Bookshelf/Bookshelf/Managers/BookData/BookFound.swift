@@ -12,6 +12,6 @@ struct BookFound: Codable {
     let author: String
     let publishYear: Int
     let numberOfPages: Int
-    let coverId: Int
+    let coverId: Int?
     let firstSentense: String
 }

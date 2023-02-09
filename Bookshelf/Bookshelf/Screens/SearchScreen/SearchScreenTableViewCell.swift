@@ -53,6 +53,7 @@ class SearchScreenTableViewCell: UITableViewCell {
     
     func setData(_ data: BookFound) {
         guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(data.coverId)" + ".jpg") else { return }
+        print(data.coverId)
         self.bookCover.load(url: url)
         self.bookName.text = data.title
         self.bookAuthor.text = data.author
@@ -78,7 +79,6 @@ class SearchScreenTableViewCell: UITableViewCell {
         let height = safeAreaLayoutGuide.layoutFrame.height
         let labelSize = CGSize(width: width - bookCover.frame.width - 20, height: (height / 3) - 10)
         
-//        self.layer.frame.size = CGSize(width: width, height: 160)
         bookCover.frame.size = Sizes.imageSize
         bookName.frame.size = labelSize
         bookAuthor.frame.size = labelSize
