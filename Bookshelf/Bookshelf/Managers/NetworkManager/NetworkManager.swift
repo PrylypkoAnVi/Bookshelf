@@ -26,7 +26,7 @@ class NetworkManager {
             switch response.result {
             case .success(let data):
                 completion(data.docs.compactMap{
-                    return BookFound(title: $0.title ?? "Book Name", author: $0.authorName?.joined(separator: " ") ?? "Book Author", publishYear: $0.firstPublishYear ?? 1543, numberOfPages: $0.numberOfPagesMedian ?? 45, coverId: $0.coverI ?? 10947, firstSentense: $0.firstSentence?.joined(separator: " ") ?? "This book is about...")
+                    return BookFound(title: $0.title ?? "Book Name", author: "by \($0.authorName?.joined(separator: " ") ?? "Book Author")" , publishYear: $0.firstPublishYear ?? 1543, numberOfPages: $0.numberOfPagesMedian ?? 45, coverId: $0.coverI ?? 13161679, firstSentense: $0.firstSentence?.joined(separator: " ") ?? "This book is about...")
                 })
             case .failure(_):
                 if response.data == nil {

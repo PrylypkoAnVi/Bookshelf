@@ -25,19 +25,20 @@ class SearchScreenTableViewCell: UITableViewCell {
     internal var bookCover: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleToFill
-        image.backgroundColor = .gray
         return image
     }()
     internal var bookName: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
-        label.backgroundColor = .green
+        label.textAlignment = .left
+        label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     internal var bookAuthor: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
-        label.backgroundColor = .blue
+        label.textAlignment = .left
+        label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     private var disposeBag: DisposeBag = .init()
@@ -45,9 +46,7 @@ class SearchScreenTableViewCell: UITableViewCell {
     var bookModel: SearchScreenViewModel {
         return resolve(SearchScreenViewModel.self)
     }
-    
-//    var getImage: (()->())?
-    
+        
     //MARK: -
     //MARK: Methods
     
@@ -55,16 +54,15 @@ class SearchScreenTableViewCell: UITableViewCell {
         self.bookName.text = data.title
         self.bookAuthor.text = data.author
         guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(data.coverId)" + ".jpg") else { return }
+        print(data.coverId)
         self.bookCover.load(url: url)
         
     }
     
-//    func setImage(_ image: UIImage) {
-//
-//    }
-    
     override func prepareForReuse() {
         self.bookCover.image = nil
+        self.bookName.text = nil
+        self.bookAuthor.text = nil
         super.prepareForReuse()
     }
     
@@ -75,26 +73,27 @@ class SearchScreenTableViewCell: UITableViewCell {
         
         let width = safeAreaLayoutGuide.layoutFrame.width
         let height = safeAreaLayoutGuide.layoutFrame.height
-        let labelSize = CGSize(width: width - bookCover.frame.width - 20, height: height / 2)
+        let labelSize = CGSize(width: width - bookCover.frame.width - 20, height: (height / 2) - 5)
         
+        self.layer.frame.size = CGSize(width: width, height: 167)
         bookCover.frame.size = Sizes.imageSize
         bookName.frame.size = labelSize
         bookAuthor.frame.size = labelSize
         
         bookCover.pin
-            .top()
-            .left()
-            .bottom()
-            .marginVertical(Sizes.verticalSpacing)
-            .marginHorizontal(Sizes.spacing)
+            .top(5)
+            .left(5)
+            .bottom(5)
         bookName.pin
             .after(of: bookCover)
-            .top()
-            .right()
+            .top(5)
+//            .marginHorizontal(5)
+            .right(5)
         bookAuthor.pin
             .after(of: bookCover)
             .below(of: bookName)
-            .right()
-            .bottom()
+//            .marginHorizontal(5)
+            .right(5)
+            .bottom(5)
     }
 }

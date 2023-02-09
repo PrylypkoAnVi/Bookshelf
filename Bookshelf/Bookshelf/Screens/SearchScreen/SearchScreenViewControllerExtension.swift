@@ -25,6 +25,7 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        searchBar.endEditing(true)
     }
     
 }
