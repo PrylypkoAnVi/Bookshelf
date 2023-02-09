@@ -22,10 +22,4 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
         cell.setData(data)
         return cell
     }
-
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        searchBar.endEditing(true)
-    }
-    
 }

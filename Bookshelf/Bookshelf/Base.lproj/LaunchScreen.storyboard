@@ -15,16 +15,41 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookshelf" translatesAutoresizingMaskIntoConstraints="NO" id="ID6-SI-Ku2">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BookShelf" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sat-Sk-Htd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="tintColor" red="0.12939515709999999" green="0.1294237375" blue="0.12938910719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="40"/>
+                                <color key="textColor" red="0.9881414771" green="0.98830300569999996" blue="0.98810714479999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.99206274750000001" green="0.99222487209999999" blue="0.99202829599999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="5" height="-1"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="Sat-Sk-Htd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6CN-9n-ZaE"/>
+                            <constraint firstItem="ID6-SI-Ku2" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="P3O-0X-bie"/>
+                            <constraint firstItem="Sat-Sk-Htd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="T5I-Eb-WGv"/>
+                            <constraint firstItem="ID6-SI-Ku2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="d5K-5a-SNR"/>
+                            <constraint firstItem="ID6-SI-Ku2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="e3l-o1-0mP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sat-Sk-Htd" secondAttribute="trailing" id="fch-BJ-CuW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Sat-Sk-Htd" secondAttribute="bottom" id="ff2-NW-IqR"/>
+                            <constraint firstAttribute="bottom" secondItem="ID6-SI-Ku2" secondAttribute="bottom" id="lZ1-5g-4x0"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
+        <image name="bookshelf" width="500" height="750"/>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

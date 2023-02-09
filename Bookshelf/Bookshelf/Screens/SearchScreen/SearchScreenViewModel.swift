@@ -27,15 +27,6 @@ class SearchScreenViewModel {
     private var disposeBag: DisposeBag = .init()
     
     init() {
-//        self.coverId.asObservable().map{ val in
-//            guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(self.coverId.value)" + ".jpg"),
-//                  let data = try? Data(contentsOf: url),
-//                  let image = UIImage(data: data)
-//            else {
-//                return UIImage()
-//            }
-//            return image
-//        }.bind(to: self.image).disposed(by: self.disposeBag)
         searchTextObservable.asObservable().map{$0}.bind(to: networkManager.bookSearchURLValue).disposed(by: disposeBag)
         searchTextObservable.asObservable().bind(with: self, onNext: { this, value in
             guard (value?.count ?? 0) > 3 else { return }

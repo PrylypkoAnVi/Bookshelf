@@ -16,6 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookshelf" translatesAutoresizingMaskIntoConstraints="NO" id="2lh-v3-1fs">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <searchBar contentMode="redraw" placeholder="Search" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ny-iS-TkF">
                                 <rect key="frame" x="0.0" y="44" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
@@ -24,9 +27,10 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-9P-uNA">
+                            <tableView clipsSubviews="YES" alpha="0.94999999999999996" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-9P-uNA">
                                 <rect key="frame" x="0.0" y="95" width="414" height="767"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" red="0.25095289949999999" green="0.25100025529999997" blue="0.25094279650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="KBW-WM-sfo" customClass="SearchScreenTableViewCell" customModule="Bookshelf" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
@@ -35,18 +39,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XPH-9P-uNA" secondAttribute="bottom" id="7ea-gy-rGu"/>
                             <constraint firstItem="4ny-iS-TkF" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Lat-gP-L2G"/>
+                            <constraint firstItem="2lh-v3-1fs" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="QUP-qD-T0B"/>
                             <constraint firstItem="XPH-9P-uNA" firstAttribute="top" secondItem="4ny-iS-TkF" secondAttribute="bottom" id="Rsc-s6-vZj"/>
+                            <constraint firstItem="2lh-v3-1fs" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Xbw-rL-3hN"/>
+                            <constraint firstItem="2lh-v3-1fs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="aZV-CN-SUc"/>
                             <constraint firstItem="4ny-iS-TkF" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="bVY-6C-6Ty"/>
+                            <constraint firstAttribute="bottom" secondItem="2lh-v3-1fs" secondAttribute="bottom" id="pfs-dI-kTf"/>
                             <constraint firstItem="4ny-iS-TkF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="v0w-u1-Ygu"/>
                             <constraint firstItem="XPH-9P-uNA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="x6L-40-Ovm"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XPH-9P-uNA" secondAttribute="trailing" id="zoc-5D-WTW"/>
@@ -63,11 +70,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bookshelf" width="500" height="750"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

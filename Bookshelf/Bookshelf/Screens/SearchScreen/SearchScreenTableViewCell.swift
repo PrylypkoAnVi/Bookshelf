@@ -13,7 +13,7 @@ import RxCocoa
 class SearchScreenTableViewCell: UITableViewCell {
     
     enum Sizes {
-        static let imageSize = CGSize(width: 100, height: 157)
+        static let imageSize = CGSize(width: 100, height: 150)
         static let spacing: CGFloat = 10
         static let verticalSpacing: CGFloat = 5
     }
@@ -30,13 +30,14 @@ class SearchScreenTableViewCell: UITableViewCell {
     internal var bookName: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.numberOfLines = 2
-        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        label.numberOfLines = 3
         return label
     }()
     internal var bookAuthor: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -73,9 +74,9 @@ class SearchScreenTableViewCell: UITableViewCell {
         
         let width = safeAreaLayoutGuide.layoutFrame.width
         let height = safeAreaLayoutGuide.layoutFrame.height
-        let labelSize = CGSize(width: width - bookCover.frame.width - 20, height: (height / 2) - 5)
+        let labelSize = CGSize(width: width - bookCover.frame.width - 20, height: (height / 3) - 10)
         
-        self.layer.frame.size = CGSize(width: width, height: 167)
+        self.layer.frame.size = CGSize(width: width, height: 160)
         bookCover.frame.size = Sizes.imageSize
         bookName.frame.size = labelSize
         bookAuthor.frame.size = labelSize
@@ -87,13 +88,10 @@ class SearchScreenTableViewCell: UITableViewCell {
         bookName.pin
             .after(of: bookCover)
             .top(5)
-//            .marginHorizontal(5)
-            .right(5)
+            .marginHorizontal(10)
         bookAuthor.pin
             .after(of: bookCover)
             .below(of: bookName)
-//            .marginHorizontal(5)
-            .right(5)
-            .bottom(5)
+            .marginHorizontal(10)
     }
 }
