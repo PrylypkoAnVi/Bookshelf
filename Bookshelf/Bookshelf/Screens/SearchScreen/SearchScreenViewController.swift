@@ -16,10 +16,6 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
     @IBOutlet weak var searchBar: UISearchBar?
     @IBOutlet weak var tableView: UITableView?
     public var viewModel: SearchScreenViewModel!
-    internal var mainView: SearchScreenView {
-        guard let mainView = self.view as? SearchScreenView else {fatalError("View Error")}
-        return mainView
-    }
     private var disposeBag: DisposeBag = .init()
     
     //MARK: -

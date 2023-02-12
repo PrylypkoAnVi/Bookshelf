@@ -7,7 +7,6 @@
 
 import UIKit
 import PinLayout
-import Alamofire
 import AlamofireImage
 
 class SearchScreenTableViewCell: UITableViewCell {

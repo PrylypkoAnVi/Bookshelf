@@ -25,4 +25,10 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        print(row)
+        let bookScreenDestination = BookScreenDestination()
+        resolve(Router.self).route(to: bookScreenDestination)
+    }
 }
