@@ -11,5 +11,6 @@ target 'Bookshelf' do
   pod 'PinLayout'
   pod 'Alamofire'
   pod 'XServiceLocator'
+  pod 'AlamofireImage'
 
 end

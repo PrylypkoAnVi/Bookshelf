@@ -7,15 +7,15 @@
 
 import UIKit
 import PinLayout
-import RxSwift
-import RxCocoa
+import Alamofire
+import AlamofireImage
 
 class SearchScreenTableViewCell: UITableViewCell {
     
     enum Sizes {
         static let imageSize = CGSize(width: 100, height: 150)
-        static let spacing: CGFloat = 10
-        static let verticalSpacing: CGFloat = 5
+        static let spacing: CGFloat = 5
+        static let doubleSpacing: CGFloat = 10
     }
     
     //MARK: -
@@ -24,6 +24,7 @@ class SearchScreenTableViewCell: UITableViewCell {
     static let cellId = "cell"
     internal var bookCover: UIImageView = {
         let image = UIImageView()
+        image.image = UIImage(named: "noCover")
         image.contentMode = .scaleToFill
         return image
     }()
@@ -38,11 +39,9 @@ class SearchScreenTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        label.numberOfLines = 2
-        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 6
         return label
     }()
-    private var disposeBag: DisposeBag = .init()
     
     var bookModel: SearchScreenViewModel {
         return resolve(SearchScreenViewModel.self)
@@ -52,15 +51,9 @@ class SearchScreenTableViewCell: UITableViewCell {
     //MARK: Methods
     
     func setData(_ data: BookFound) {
-        if data.coverId != nil {
-            guard let cover = data.coverId else { return }
-            guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(cover)" + ".jpg") else { return }
-            print(data.coverId)
-            self.bookCover.load(url: url)
-        } else {
-            self.bookCover.image = UIImage(named: "noCover")
-        }
-        
+        guard let cover = data.coverId else { return }
+        guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(cover)" + ".jpg") else { return }
+        self.bookCover.af.setImage(withURL: url)
         self.bookName.text = data.title
         self.bookAuthor.text = data.author
     }
@@ -83,23 +76,24 @@ class SearchScreenTableViewCell: UITableViewCell {
         
         let width = safeAreaLayoutGuide.layoutFrame.width
         let height = safeAreaLayoutGuide.layoutFrame.height
-        let labelSize = CGSize(width: width - bookCover.frame.width - 20, height: (height / 3) - 10)
+        let nameLabelSize = CGSize(width: width - bookCover.frame.width - 20, height: (height / 3) - Sizes.doubleSpacing)
+        let AuthorLabelSize = CGSize(width: width - bookCover.frame.width - 20, height: 2 * (height / 3) - Sizes.doubleSpacing)
         
         bookCover.frame.size = Sizes.imageSize
-        bookName.frame.size = labelSize
-        bookAuthor.frame.size = labelSize
+        bookName.frame.size = nameLabelSize
+        bookAuthor.frame.size = AuthorLabelSize
         
         bookCover.pin
-            .top(5)
-            .left(5)
-            .bottom(5)
+            .top(Sizes.spacing)
+            .left(Sizes.spacing)
+            .bottom(Sizes.spacing)
         bookName.pin
             .after(of: bookCover)
-            .top(5)
-            .marginHorizontal(10)
+            .top(Sizes.spacing)
+            .marginHorizontal(Sizes.doubleSpacing)
         bookAuthor.pin
             .after(of: bookCover)
             .below(of: bookName)
-            .marginHorizontal(10)
+            .marginHorizontal(Sizes.doubleSpacing)
     }
 }

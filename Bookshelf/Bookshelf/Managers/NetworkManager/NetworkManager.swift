@@ -29,13 +29,14 @@ class NetworkManager {
                     guard let title = $0.title,
                           let author = $0.authorName?.joined(separator: " "),
                           let publishYear = $0.firstPublishYear,
-                          let numberOfPages = $0.numberOfPagesMedian
+                          let numberOfPages = $0.numberOfPagesMedian,
+                          let coverId = $0.coverId
                     else { return nil }
                     return BookFound(title: title,
                                      author: "by \(author)",
                                      publishYear: publishYear,
                                      numberOfPages: numberOfPages,
-                                     coverId: $0.coverId,
+                                     coverId: coverId,
                                      firstSentense: $0.firstSentence?.joined(separator: " ") ?? "")
                 })
             case .failure(_):
