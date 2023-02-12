@@ -13,6 +13,16 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     //MARK: -
     //MARK: Properties
     
+    @IBOutlet weak var cover: UIImageView?
+    @IBOutlet weak var name: UILabel?
+    @IBOutlet weak var author: UILabel?
+    @IBOutlet weak var publishYear: UILabel?
+    @IBOutlet weak var numberOfPages: UILabel?
+    @IBOutlet weak var firstSentense: UILabel?
+    @IBOutlet weak var returnButton: UIButton?
+    @IBOutlet weak var likeButton: UIButton?
+    
+    
     public var viewModel: BookScreenViewModel!
     private var disposeBag: DisposeBag = .init()
     
