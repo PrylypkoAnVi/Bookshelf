@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookshelf" translatesAutoresizingMaskIntoConstraints="NO" id="2lh-v3-1fs">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </imageView>
                             <searchBar contentMode="redraw" placeholder="Search" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ny-iS-TkF">
                                 <rect key="frame" x="0.0" y="44" width="414" height="51"/>
@@ -45,10 +45,11 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XPH-9P-uNA" secondAttribute="bottom" id="7ea-gy-rGu"/>
+                            <constraint firstItem="2lh-v3-1fs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="B4d-Pu-ni1"/>
                             <constraint firstItem="4ny-iS-TkF" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Lat-gP-L2G"/>
-                            <constraint firstItem="2lh-v3-1fs" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="QUP-qD-T0B"/>
                             <constraint firstItem="XPH-9P-uNA" firstAttribute="top" secondItem="4ny-iS-TkF" secondAttribute="bottom" id="Rsc-s6-vZj"/>
                             <constraint firstItem="2lh-v3-1fs" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Xbw-rL-3hN"/>
                             <constraint firstItem="2lh-v3-1fs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="aZV-CN-SUc"/>

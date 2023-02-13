@@ -41,10 +41,6 @@ class SearchScreenTableViewCell: UITableViewCell {
         label.numberOfLines = 6
         return label
     }()
-    
-    var bookModel: SearchScreenViewModel {
-        return resolve(SearchScreenViewModel.self)
-    }
         
     //MARK: -
     //MARK: Methods
