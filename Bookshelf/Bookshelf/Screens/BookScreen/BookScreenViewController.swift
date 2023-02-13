@@ -19,9 +19,7 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     @IBOutlet weak var publishYear: UILabel?
     @IBOutlet weak var numberOfPages: UILabel?
     @IBOutlet weak var firstSentense: UILabel?
-    @IBOutlet weak var returnButton: UIButton?
-    @IBOutlet weak var likeButton: UIButton?
-    
+    @IBOutlet weak var returnButton: UIButton?    
     
     public var viewModel: BookScreenViewModel!
     private var disposeBag: DisposeBag = .init()
@@ -42,4 +40,11 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     deinit {
         print("Deinit: \(Self.self)")
     }
+    
+    
+    @IBAction func returnButtonPressed(_ sender: Any) {
+        let searchScreenDestination = SearchScreenDestination()
+        resolve(Router.self).route(to: searchScreenDestination)
+    }
+    
 }

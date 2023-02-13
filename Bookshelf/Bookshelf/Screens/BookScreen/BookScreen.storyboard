@@ -29,6 +29,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
+                                        <connections>
+                                            <action selector="returnButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="luZ-FS-EE9"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return to the bookshelf" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAf-YC-JBv">
                                         <rect key="frame" x="51" y="0.0" width="292" height="25"/>
@@ -36,13 +39,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u84-zG-6Ea">
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u84-zG-6Ea">
                                         <rect key="frame" x="369" y="0.0" width="25" height="25"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="Iad-W4-oiA"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="suit.heart" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="book" catalog="system"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -133,11 +139,10 @@
                         <outlet property="author" destination="ECw-EK-4p6" id="MrM-MV-yqf"/>
                         <outlet property="cover" destination="hn2-f6-LAt" id="wCm-ko-5or"/>
                         <outlet property="firstSentense" destination="Efi-AQ-v8Y" id="k15-WE-tDh"/>
-                        <outlet property="likeButton" destination="u84-zG-6Ea" id="17e-GX-bJK"/>
                         <outlet property="name" destination="Jq8-AJ-pqE" id="CZm-3h-XWO"/>
                         <outlet property="numberOfPages" destination="ebL-sW-mov" id="lcK-3E-pER"/>
                         <outlet property="publishYear" destination="eDA-9g-qjk" id="WNF-So-rxH"/>
-                        <outlet property="returnButton" destination="3aY-Hm-irY" id="SGZ-Xx-1zR"/>
+                        <outlet property="returnButton" destination="3aY-Hm-irY" id="M7J-7w-zGl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -146,9 +151,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="book" catalog="system" width="128" height="99"/>
         <image name="bookshelf" width="500" height="750"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
-        <image name="suit.heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
