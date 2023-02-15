@@ -28,8 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         register(networkManager, for: NetworkManager.self)
         let bookManager = BookManager()
         register(bookManager, for: BookManager.self)
-        let bookScreenViewModel = BookScreenViewModel()
-        register(bookScreenViewModel, for: BookScreenViewModel.self)
     }
 
 }

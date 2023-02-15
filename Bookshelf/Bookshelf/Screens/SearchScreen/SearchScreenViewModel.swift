@@ -27,10 +27,12 @@ class SearchScreenViewModel {
     private var disposeBag: DisposeBag = .init()
     
     init() {
-        searchTextObservable.asObservable().map{$0}.bind(to: networkManager.bookSearchURLValue).disposed(by: disposeBag)
-        searchTextObservable.asObservable().bind(with: self, onNext: { this, value in
-            guard (value?.count ?? 0) > 3 else { return }
-        }).disposed(by: disposeBag)
+        searchTextObservable
+            .asObservable()
+            .filter({ value in
+                (value?.count ?? 0) >= 3
+            })
+            .bind(to: networkManager.bookSearchURLValue).disposed(by: disposeBag)
         bookManager.book.asObservable().map{$0}.bind(to: self.book).disposed(by: disposeBag)
     }
     
