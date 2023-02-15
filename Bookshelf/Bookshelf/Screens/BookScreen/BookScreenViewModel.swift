@@ -24,6 +24,11 @@ class BookScreenViewModel {
     var disposeBag: DisposeBag = .init()
     var data = BehaviorRelay<BookFound?>(value: nil)
     
+    var book: BookFound
+    init(book: BookFound) {
+        self.book = book
+    }
+    
     init() {
         self.data.asObservable().map{$0?.title}.bind(to: self.title).disposed(by: disposeBag)
         self.data.asObservable().map{$0?.author}.bind(to: self.author).disposed(by: disposeBag)

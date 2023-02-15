@@ -46,12 +46,12 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     //MARK: Private Methods
     
     private func setBookData() {
-        self.viewModel.cover.asObservable().map{$0}.bind(to: (self.cover?.rx.image)!).disposed(by: disposeBag)
-        self.viewModel.title.asObservable().map{$0}.bind(to: (self.name?.rx.text)!).disposed(by: disposeBag)
-        self.viewModel.author.asObservable().map{$0}.bind(to: (self.author?.rx.text)!).disposed(by: disposeBag)
-        self.viewModel.publishYear.asObservable().map{$0}.bind(to: (self.publishYear?.rx.text)!).disposed(by: disposeBag)
-        self.viewModel.firstSentense.asObservable().map{$0}.bind(to: (self.firstSentense?.rx.text)!).disposed(by: disposeBag)
-        self.viewModel.pages.asObservable().map{$0}.bind(to: (self.numberOfPages?.rx.text)!).disposed(by: disposeBag)
+        self.name?.text = self.viewModel.book.title
+        self.cover?.image = self.viewModel.cover.value
+        self.author?.text = self.viewModel.book.author
+        self.publishYear?.text = "Publish year: \(self.viewModel.book.publishYear)"
+        self.numberOfPages?.text = "Number of pages: \(self.viewModel.book.numberOfPages)"
+        self.firstSentense?.text = self.viewModel.book.firstSentense
     }
 
     //MARK: -
