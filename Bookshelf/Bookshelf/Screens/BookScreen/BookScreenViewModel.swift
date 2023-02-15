@@ -48,6 +48,4 @@ class BookScreenViewModel {
         }.bind(to: self.cover).disposed(by: disposeBag)
     }
     
-    
-    
 }

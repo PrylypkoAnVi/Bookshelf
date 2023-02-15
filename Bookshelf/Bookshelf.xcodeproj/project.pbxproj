@@ -16,7 +16,6 @@
 		5D37FD94299128AC009242AF /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37FD93299128AC009242AF /* AppRouter.swift */; };
 		5D37FD96299128BE009242AF /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37FD95299128BE009242AF /* StoryboardLoadable.swift */; };
 		5D37FD9B29912955009242AF /* SearchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D37FD9A29912955009242AF /* SearchScreen.storyboard */; };
-		5D37FD9D2991296C009242AF /* SearchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37FD9C2991296C009242AF /* SearchScreenView.swift */; };
 		5D37FD9F2991297F009242AF /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37FD9E2991297F009242AF /* SearchScreenViewController.swift */; };
 		5D37FDA129912991009242AF /* SearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37FDA029912991009242AF /* SearchScreenViewModel.swift */; };
 		5D37FDA629912E43009242AF /* BookFoundToDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37FDA529912E43009242AF /* BookFoundToDecode.swift */; };
@@ -45,7 +44,6 @@
 		5D37FD93299128AC009242AF /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		5D37FD95299128BE009242AF /* StoryboardLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
 		5D37FD9A29912955009242AF /* SearchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchScreen.storyboard; sourceTree = "<group>"; };
-		5D37FD9C2991296C009242AF /* SearchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenView.swift; sourceTree = "<group>"; };
 		5D37FD9E2991297F009242AF /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		5D37FDA029912991009242AF /* SearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewModel.swift; sourceTree = "<group>"; };
 		5D37FDA529912E43009242AF /* BookFoundToDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFoundToDecode.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				5D37FD9A29912955009242AF /* SearchScreen.storyboard */,
-				5D37FD9C2991296C009242AF /* SearchScreenView.swift */,
 				5D626F4B29916C6A00957800 /* SearchScreenTableViewCell.swift */,
 				5D37FD9E2991297F009242AF /* SearchScreenViewController.swift */,
 				5D626F4D2991707700957800 /* SearchScreenViewControllerExtension.swift */,
@@ -367,7 +364,6 @@
 				5D37FD9029912872009242AF /* Container.swift in Sources */,
 				5DBE08272992A0E600B63445 /* UIImageViewExtension.swift in Sources */,
 				5D37FDA629912E43009242AF /* BookFoundToDecode.swift in Sources */,
-				5D37FD9D2991296C009242AF /* SearchScreenView.swift in Sources */,
 				5D37FD7D29912491009242AF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

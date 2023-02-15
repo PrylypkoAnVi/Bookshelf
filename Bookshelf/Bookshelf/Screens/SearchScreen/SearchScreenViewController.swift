@@ -39,6 +39,9 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
         print("Deinit: \(Self.self)")
     }
  
+    //MARK: -
+    //MARK: Private Methods
+    
     private func addBinding() {
         searchBar?.searchTextField.rx.text
             .orEmpty

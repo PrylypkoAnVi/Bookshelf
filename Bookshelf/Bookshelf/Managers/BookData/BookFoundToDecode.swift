@@ -22,7 +22,6 @@ struct Doc: Codable {
     let firstSentence: [String]?
     let authorName: [String]?
     
-    
     enum CodingKeys: String, CodingKey, Codable {
             case title
             case firstPublishYear = "first_publish_year"

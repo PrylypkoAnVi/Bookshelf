@@ -7,7 +7,6 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 
 class BookScreenViewController: UIViewController, StoryboardLoadable {
     
@@ -54,7 +53,9 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
         self.viewModel.firstSentense.asObservable().map{$0}.bind(to: (self.firstSentense?.rx.text)!).disposed(by: disposeBag)
         self.viewModel.pages.asObservable().map{$0}.bind(to: (self.numberOfPages?.rx.text)!).disposed(by: disposeBag)
     }
-    
+
+    //MARK: -
+    //MARK: @IBAction
     
     @IBAction func returnButtonPressed(_ sender: Any) {
         let searchScreenDestination = SearchScreenDestination()

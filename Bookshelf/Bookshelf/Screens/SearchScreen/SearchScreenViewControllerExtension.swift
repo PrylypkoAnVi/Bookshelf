@@ -14,6 +14,7 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.bookManager.book.value?.count ?? 0
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchScreenTableViewCell.cellId, for: indexPath) as? SearchScreenTableViewCell,
               let data = viewModel.bookManager.book.value?[indexPath.row]
@@ -23,9 +24,11 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
         cell.setData(data)
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let data = viewModel.bookManager.book.value?[indexPath.row] else { return }
         print(data)
