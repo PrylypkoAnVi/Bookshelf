@@ -51,7 +51,7 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
         self.viewModel.title.asObservable().map{$0}.bind(to: (self.name?.rx.text)!).disposed(by: disposeBag)
         self.viewModel.author.asObservable().map{$0}.bind(to: (self.author?.rx.text)!).disposed(by: disposeBag)
         self.viewModel.publishYear.asObservable().map{$0}.bind(to: (self.publishYear?.rx.text)!).disposed(by: disposeBag)
-        self.viewModel.firstSentense.asObservable().map{$0}.bind(to: (self.name?.rx.text)!).disposed(by: disposeBag)
+        self.viewModel.firstSentense.asObservable().map{$0}.bind(to: (self.firstSentense?.rx.text)!).disposed(by: disposeBag)
         self.viewModel.pages.asObservable().map{$0}.bind(to: (self.numberOfPages?.rx.text)!).disposed(by: disposeBag)
     }
     
