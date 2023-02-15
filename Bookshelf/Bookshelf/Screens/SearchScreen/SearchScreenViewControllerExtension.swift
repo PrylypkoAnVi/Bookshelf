@@ -27,17 +27,9 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
         return 160
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        var bookScreenViewModel: BookScreenViewModel {
-            return resolve(BookScreenViewModel.self)
-        }
-        
         guard let data = viewModel.bookManager.book.value?[indexPath.row] else { return }
-        
-        bookScreenViewModel.data.accept(data)
-        print(bookScreenViewModel.data.value)
-        
-        let bookScreenDestination = BookScreenDestination()
+        print(data)
+        let bookScreenDestination = BookScreenDestination(bookFound: data)
         resolve(Router.self).route(to: bookScreenDestination)
     }
 }
