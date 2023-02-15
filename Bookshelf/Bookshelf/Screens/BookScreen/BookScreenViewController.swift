@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class BookScreenViewController: UIViewController, StoryboardLoadable {
     
@@ -35,10 +36,21 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBookData()
     }
     
     deinit {
         print("Deinit: \(Self.self)")
+    }
+    
+    //MARK: -
+    //MARK: Private Methods
+    
+    private func setBookData() {
+//        self.name?.text = self.viewModel.title.value
+        self.viewModel.title.asObservable().map{$0}.bind(to: (self.name?.rx.text)!).disposed(by: disposeBag)
+
+        print(self.name?.text)
     }
     
     

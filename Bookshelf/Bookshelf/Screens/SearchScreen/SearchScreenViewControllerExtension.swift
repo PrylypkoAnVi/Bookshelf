@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -26,8 +27,16 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
         return 160
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = indexPath.row
-        print(row)
+        
+        var bookScreenViewModel: BookScreenViewModel {
+            return resolve(BookScreenViewModel.self)
+        }
+        
+        guard let data = viewModel.bookManager.book.value?[indexPath.row] else { return }
+        
+        bookScreenViewModel.data.accept(data)
+        print(bookScreenViewModel.data.value)
+        
         let bookScreenDestination = BookScreenDestination()
         resolve(Router.self).route(to: bookScreenDestination)
     }
