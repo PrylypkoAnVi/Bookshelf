@@ -42,6 +42,17 @@ class SearchScreenTableViewCell: UITableViewCell {
         return label
     }()
         
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.contentView.addSubview(bookCover)
+        self.contentView.addSubview(bookName)
+        self.contentView.addSubview(bookAuthor)
+    }
+   
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: -
     //MARK: Methods
     
@@ -61,10 +72,6 @@ class SearchScreenTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        self.addSubview(bookCover)
-        self.addSubview(bookName)
-        self.addSubview(bookAuthor)
-        
         let width = safeAreaLayoutGuide.layoutFrame.width
         let height = safeAreaLayoutGuide.layoutFrame.height
         let nameLabelSize = CGSize(width: width - bookCover.frame.width - 20, height: (height / 3) - Sizes.doubleSpacing)
