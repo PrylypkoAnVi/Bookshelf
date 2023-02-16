@@ -52,14 +52,7 @@ class SearchScreenTableViewCell: UITableViewCell {
         self.bookName.text = data.title
         self.bookAuthor.text = data.author
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.addSubview(bookCover)
-        self.addSubview(bookName)
-        self.addSubview(bookAuthor)
-    }
-    
+
     override func prepareForReuse() {
         self.bookCover.image = nil
         self.bookName.text = nil
@@ -68,6 +61,10 @@ class SearchScreenTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
+        self.addSubview(bookCover)
+        self.addSubview(bookName)
+        self.addSubview(bookAuthor)
+        
         let width = safeAreaLayoutGuide.layoutFrame.width
         let height = safeAreaLayoutGuide.layoutFrame.height
         let nameLabelSize = CGSize(width: width - bookCover.frame.width - 20, height: (height / 3) - Sizes.doubleSpacing)
