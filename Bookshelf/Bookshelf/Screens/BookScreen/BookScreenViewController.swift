@@ -47,7 +47,7 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     
     private func setBookData() {
         self.name?.text = self.viewModel.book.title
-        self.cover?.image = self.viewModel.cover.value
+        self.cover?.image = self.viewModel.cover.value.image
         self.author?.text = self.viewModel.book.author
         self.publishYear?.text = "Publish year: \(self.viewModel.book.publishYear)"
         self.numberOfPages?.text = "Number of pages: \(self.viewModel.book.numberOfPages)"
