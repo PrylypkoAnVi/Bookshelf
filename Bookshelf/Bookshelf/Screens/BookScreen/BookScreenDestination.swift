@@ -10,7 +10,7 @@ import UIKit
 struct BookScreenDestination: Destination {
     
     var destination: UIViewController? {
-        var viewModel = BookScreenViewModel(book: bookFound)
+        let viewModel = BookScreenViewModel(book: bookFound)
         let contr = BookScreenViewController.startVC(viewModel: viewModel)
         return contr
     }
