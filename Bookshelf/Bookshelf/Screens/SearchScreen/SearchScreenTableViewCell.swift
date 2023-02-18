@@ -59,7 +59,7 @@ class SearchScreenTableViewCell: UITableViewCell {
     func setData(_ data: BookFound) {
         guard let cover = data.coverId else { return }
         guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(cover)" + ".jpg") else { return }
-        self.bookCover.af.setImage(withURL: url, placeholderImage: UIImage(named: "loading"))
+        self.bookCover.af.setImage(withURL: url, placeholderImage: UIImage(named: "loading"), imageTransition: .crossDissolve(2.0))
         self.bookName.text = data.title
         self.bookAuthor.text = data.author
     }

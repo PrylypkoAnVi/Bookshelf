@@ -24,7 +24,7 @@ class BookScreenViewModel {
         guard let coverData = book.coverId,
         let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(coverData)" + ".jpg")
         else { return }
-        self.cover.value.af.setImage(withURL: url, placeholderImage: UIImage(named: "loading"))
+        self.cover.value.af.setImage(withURL: url, placeholderImage: UIImage(named: "loading"), imageTransition: .crossDissolve(5.0))
     }
     
 }
