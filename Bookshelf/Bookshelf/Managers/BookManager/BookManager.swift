@@ -16,15 +16,19 @@ class BookManager {
     
     public var book = BehaviorRelay<[BookFound]?>(value: [])
     public var failureMessage = BehaviorRelay<String?>(value: nil)
+    public var isLoading = BehaviorRelay<Bool?>(value: nil)
     
     //MARK: -
     //MARK: Methods
     
     func getBook() {
+        self.isLoading.accept(true)
         resolve(NetworkManager.self).getBook() { val in
+            self.isLoading.accept(false)
             self.book.accept(val ?? [])
         } onFailure: { error in
             self.failureMessage.accept(error.description)
+            self.isLoading.accept(false)
         }
     }
 }

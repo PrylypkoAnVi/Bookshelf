@@ -52,24 +52,25 @@ class AppRouter: Router {
     }
     
     public func loading(show: Bool) {
-        let loadingIndicator = UIActivityIndicatorView()
-        guard let width = self.currentViewController?.view.frame.width,
-              let height = self.currentViewController?.view.frame.height
-        else {
-            return
-        }
-        loadingIndicator.frame.size = CGSize(width: width, height: height)
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+//        guard let width = self.currentViewController?.view.frame.width,
+//              let height = self.currentViewController?.view.frame.height
+//        else {
+//            return
+//        }
+//        loadingIndicator.frame.size = CGSize(width: width, height: height)
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.style = .large
-//        self.currentViewController?.view.addSubview(loadingIndicator)
+        alert.view.addSubview(loadingIndicator)
         switch show {
         case true:
-            self.currentViewController?.view.addSubview(loadingIndicator)
             loadingIndicator.startAnimating()
+            self.currentViewController?.present(alert, animated: true, completion: nil)
             self.currentViewController?.view.isUserInteractionEnabled = false
         case false:
             loadingIndicator.stopAnimating()
-            loadingIndicator.removeFromSuperview()
+            self.currentViewController?.dismiss(animated: false, completion: nil)
             self.currentViewController?.view.isUserInteractionEnabled = true
         }
     }

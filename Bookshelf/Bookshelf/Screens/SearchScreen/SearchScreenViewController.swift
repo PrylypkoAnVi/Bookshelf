@@ -53,6 +53,7 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
             self.searchBar?.endEditing(true)
         }).disposed(by: disposeBag)
         self.viewModel.book.asObservable().bind(with: self, onNext: { this, _ in
+            self.searchBar?.resignFirstResponder()
             this.tableView?.reloadData()}).disposed(by: disposeBag)
     }
                      

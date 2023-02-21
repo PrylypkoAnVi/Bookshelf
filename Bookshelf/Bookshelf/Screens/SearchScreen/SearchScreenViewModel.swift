@@ -38,6 +38,16 @@ class SearchScreenViewModel {
                 resolve(Router.self).showError(err: message, show: true)
             }
         }).disposed(by: disposeBag)
+        bookManager.isLoading.asObservable().bind(onNext: { load in
+            if let load = load {
+                switch load {
+                case true:
+                    resolve(Router.self).loading(show: load)
+                case false:
+                    resolve(Router.self).loading(show: load)
+                }
+            }
+        }).disposed(by: disposeBag)
     }
     
     //MARK: -
