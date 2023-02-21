@@ -23,7 +23,6 @@ class SearchScreenViewModel {
         return resolve(NetworkManager.self)
     }
     var book = BehaviorRelay<[BookFound]?>(value: [])
-    var error = BehaviorRelay<String?>(value: nil)
     private var disposeBag: DisposeBag = .init()
     
     init() {
