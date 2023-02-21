@@ -18,6 +18,8 @@ protocol Router {
     func route(to: Destination) -> UIViewController?
     
     func showError(err: String, show: Bool)
+    
+    func loading(show: Bool)
 }
 
 class AppRouter: Router {
@@ -47,6 +49,29 @@ class AppRouter: Router {
         let alert = UIAlertController(title: "Error", message: err, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.currentViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    public func loading(show: Bool) {
+        let loadingIndicator = UIActivityIndicatorView()
+        guard let width = self.currentViewController?.view.frame.width,
+              let height = self.currentViewController?.view.frame.height
+        else {
+            return
+        }
+        loadingIndicator.frame.size = CGSize(width: width, height: height)
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = .large
+//        self.currentViewController?.view.addSubview(loadingIndicator)
+        switch show {
+        case true:
+            self.currentViewController?.view.addSubview(loadingIndicator)
+            loadingIndicator.startAnimating()
+            self.currentViewController?.view.isUserInteractionEnabled = false
+        case false:
+            loadingIndicator.stopAnimating()
+            loadingIndicator.removeFromSuperview()
+            self.currentViewController?.view.isUserInteractionEnabled = true
+        }
     }
     
     private func show(viewController contr: UIViewController, animated: Bool = true) {

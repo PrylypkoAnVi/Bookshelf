@@ -34,6 +34,11 @@ class SearchScreenViewModel {
             })
             .bind(to: networkManager.bookSearchURLValue).disposed(by: disposeBag)
         bookManager.book.asObservable().map{$0}.bind(to: self.book).disposed(by: disposeBag)
+        bookManager.failureMessage.asObservable().bind(onNext: { message in
+            if let message = message {
+                resolve(Router.self).showError(err: message, show: true)
+            }
+        }).disposed(by: disposeBag)
     }
     
     //MARK: -
