@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="height" constant="25" id="auG-ed-yLR"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noCover" translatesAutoresizingMaskIntoConstraints="NO" id="hn2-f6-LAt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="hn2-f6-LAt">
                                 <rect key="frame" x="132" y="119" width="150" height="225"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="225" id="9BC-bH-BzB"/>
@@ -161,7 +161,7 @@
         <image name="book" catalog="system" width="128" height="99"/>
         <image name="bookshelf" width="500" height="750"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
-        <image name="noCover" width="1205" height="1843"/>
+        <image name="loading" width="2160" height="3840"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

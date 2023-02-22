@@ -48,13 +48,17 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
             .bind(onNext: { smthn in
                 self.viewModel.searchTextObservable.accept(smthn.lowercased().replacingOccurrences(of: " ", with: "+"))
             }).disposed(by: disposeBag)
-        searchBar?.rx.searchButtonClicked.bind(onNext: {_ in
-            self.viewModel.setData()
-            self.searchBar?.endEditing(true)
-        }).disposed(by: disposeBag)
-        self.viewModel.book.asObservable().bind(with: self, onNext: { this, _ in
-            self.searchBar?.resignFirstResponder()
-            this.tableView?.reloadData()}).disposed(by: disposeBag)
+        searchBar?.rx.searchButtonClicked
+            .bind(onNext: {_ in
+                self.viewModel.setData()
+                self.searchBar?.endEditing(true)
+            }).disposed(by: disposeBag)
+        self.viewModel.book
+            .asObservable()
+            .bind(with: self, onNext: { this, _ in
+                self.searchBar?.resignFirstResponder()
+                this.tableView?.reloadData()
+            }).disposed(by: disposeBag)
     }
                      
 }

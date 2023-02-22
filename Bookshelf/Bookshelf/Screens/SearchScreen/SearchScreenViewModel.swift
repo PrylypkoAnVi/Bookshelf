@@ -31,23 +31,32 @@ class SearchScreenViewModel {
             .filter({ value in
                 (value?.count ?? 0) >= 3
             })
-            .bind(to: networkManager.bookSearchURLValue).disposed(by: disposeBag)
-        bookManager.book.asObservable().map{$0}.bind(to: self.book).disposed(by: disposeBag)
-        bookManager.failureMessage.asObservable().bind(onNext: { message in
-            if let message = message {
-                resolve(Router.self).showError(err: message, show: true)
-            }
-        }).disposed(by: disposeBag)
-        bookManager.isLoading.asObservable().bind(onNext: { load in
-            if let load = load {
-                switch load {
-                case true:
-                    resolve(Router.self).loading(show: load)
-                case false:
-                    resolve(Router.self).loading(show: load)
+            .bind(to: networkManager.bookSearchURLValue)
+            .disposed(by: disposeBag)
+        bookManager.book
+            .asObservable()
+            .bind(to: self.book)
+            .disposed(by: disposeBag)
+        bookManager.failureMessage
+            .asObservable()
+            .bind(onNext: { message in
+                if let message = message {
+                    resolve(Router.self).loading(show: false)
+                    resolve(Router.self).showError(err: message, show: true)
                 }
-            }
-        }).disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
+        bookManager.isLoading
+            .asObservable()
+            .bind(onNext: { load in
+                if let load = load {
+                    switch load {
+                    case true:
+                        resolve(Router.self).loading(show: load)
+                    case false:
+                        resolve(Router.self).loading(show: load)
+                    }
+                }
+            }).disposed(by: disposeBag)
     }
     
     //MARK: -
