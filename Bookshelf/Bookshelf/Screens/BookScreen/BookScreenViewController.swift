@@ -13,7 +13,7 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     //MARK: -
     //MARK: Properties
     
-    @IBOutlet weak var cover: UIImageView?
+    @IBOutlet weak var cover: UIImageView!
     @IBOutlet weak var name: UILabel?
     @IBOutlet weak var author: UILabel?
     @IBOutlet weak var publishYear: UILabel?
@@ -48,8 +48,10 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     private func setBookData() {
         self.name?.text = self.viewModel.book.title
         
+        self.viewModel.cover.asObservable().map{$0.image}.bind(to: (self.cover?.rx.image)!).disposed(by: disposeBag)
+        
         self.viewModel.cover.asObservable().bind(onNext: { imageView in
-            
+            print(imageView.image)
         }).disposed(by: disposeBag)
         
         self.author?.text = self.viewModel.book.author

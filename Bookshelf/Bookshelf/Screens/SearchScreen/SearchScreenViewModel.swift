@@ -41,7 +41,6 @@ class SearchScreenViewModel {
             .asObservable()
             .bind(onNext: { message in
                 if let message = message {
-                    resolve(Router.self).loading(show: false)
                     resolve(Router.self).showError(err: message, show: true)
                 }
             }).disposed(by: disposeBag)

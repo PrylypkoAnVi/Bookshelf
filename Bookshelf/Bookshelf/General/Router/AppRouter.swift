@@ -48,22 +48,23 @@ class AppRouter: Router {
     public func showError(err: String, show: Bool) {
         let alert = UIAlertController(title: "Error", message: err, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.loading(show: false)
         self.currentViewController?.present(alert, animated: false, completion: nil)
     }
     
     public func loading(show: Bool) {
-        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        let loadingAlert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.style = .large
-        alert.view.addSubview(loadingIndicator)
+        loadingAlert.view.addSubview(loadingIndicator)
         switch show {
         case true:
-            loadingIndicator.startAnimating()
-            self.currentViewController?.present(alert, animated: false, completion: nil)
+//            loadingIndicator.startAnimating()
+            self.currentViewController?.present(loadingAlert, animated: false, completion: nil)
             self.currentViewController?.view.isUserInteractionEnabled = false
         case false:
-            loadingIndicator.stopAnimating()
+//            loadingIndicator.stopAnimating()
             self.currentViewController?.dismiss(animated: false, completion: nil)
             self.currentViewController?.view.isUserInteractionEnabled = true
         }
