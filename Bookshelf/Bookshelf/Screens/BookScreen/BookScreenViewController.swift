@@ -13,7 +13,7 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     //MARK: -
     //MARK: Properties
     
-    @IBOutlet weak var cover: UIImageView!
+    @IBOutlet weak var cover: UIImageView?
     @IBOutlet weak var name: UILabel?
     @IBOutlet weak var author: UILabel?
     @IBOutlet weak var publishYear: UILabel?
@@ -46,14 +46,23 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     //MARK: Private Methods
     
     private func setBookData() {
+        guard let img = UIImage(named: "loading") else { return }
+        if let cover = cover {
+            _ = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+                if self.viewModel.cover.value.image == nil {
+                    cover.image = img
+                } else {
+                    UIView.transition(with: cover,
+                                      duration: 0.5,
+                                      options: .transitionCrossDissolve,
+                                      animations: { cover.image = self.viewModel.cover.value.image },
+                                      completion: nil)
+                    
+                    timer.invalidate()
+                }
+            }
+        }
         self.name?.text = self.viewModel.book.title
-        
-        self.viewModel.cover.asObservable().map{$0.image}.bind(to: (self.cover?.rx.image)!).disposed(by: disposeBag)
-        
-        self.viewModel.cover.asObservable().bind(onNext: { imageView in
-            print(imageView.image)
-        }).disposed(by: disposeBag)
-        
         self.author?.text = self.viewModel.book.author
         self.publishYear?.text = "Publish year: \(self.viewModel.book.publishYear)"
         self.numberOfPages?.text = "Number of pages: \(self.viewModel.book.numberOfPages)"

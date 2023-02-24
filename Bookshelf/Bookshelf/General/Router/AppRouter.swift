@@ -60,11 +60,11 @@ class AppRouter: Router {
         loadingAlert.view.addSubview(loadingIndicator)
         switch show {
         case true:
-//            loadingIndicator.startAnimating()
+            loadingIndicator.startAnimating()
             self.currentViewController?.present(loadingAlert, animated: false, completion: nil)
             self.currentViewController?.view.isUserInteractionEnabled = false
         case false:
-//            loadingIndicator.stopAnimating()
+            loadingIndicator.stopAnimating()
             self.currentViewController?.dismiss(animated: false, completion: nil)
             self.currentViewController?.view.isUserInteractionEnabled = true
         }

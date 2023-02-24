@@ -21,13 +21,16 @@ class BookScreenViewModel {
     var bookManager: BookManager {
         return resolve(BookManager.self)
     }
+    var img = BehaviorRelay<UIImage?>(value: nil)
     
     init(book: BookFound) {
         self.book = book
         guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(book.coverId)" + ".jpg") else { return }
         self.cover.value.af.setImage(withURL: url,
-                                     placeholderImage: UIImage(named: "loading"),
+//                                     placeholderImage: UIImage(named: "loading"),
                                      imageTransition: .crossDissolve(5.0))
+        self.cover.asObservable().map{$0.image}.bind(to: self.img).disposed(by: disposeBag)
+        
         bookManager.failureMessage
             .asObservable()
             .bind(onNext: { message in
