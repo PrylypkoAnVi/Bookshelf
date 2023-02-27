@@ -28,21 +28,31 @@ class BookScreenViewModel {
         guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(book.coverId)" + ".jpg"),
               let img = UIImage(named: "loading")
         else { return }
+        let urlRequest = URLRequest(url: url)
         
-        self.cover.value.af.setImage(withURL: url,
+        let downloader = ImageDownloader()
+        downloader.download(urlRequest) { response in
+//            print(response.request)
+//            print(response.response)
+//            debugPrint(response.result)
+
+            if case .success(let image) = response.result {
+                print(image)
+                self.coverImage.accept(image)
+            }
+        }
+        
+        
+//        self.cover.value.af.setImage(withURL: url,
 //                                     placeholderImage: UIImage(named: "loading"),
-                                     imageTransition: .crossDissolve(5.0))
+//                                     imageTransition: .crossDissolve(5.0))
         
 //        self.cover.asObservable().map{$0.image}.bind(to: self.img).disposed(by: disposeBag)
         
-        self.coverImage.accept(self.cover.value.image)
+//        self.coverImage.accept(self.cover.value.image)
         
 //        self.cover.asObservable().map{$0.image}.bind(onNext: { val in
-//            if let image = val {
-//                self.coverImage.accept(image)
-//            } else {
-//                self.coverImage.accept(img)
-//            }
+//            self.coverImage.accept(val)
 //        }).disposed(by: disposeBag)
         
         bookManager.failureMessage
