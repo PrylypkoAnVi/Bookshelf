@@ -9,6 +9,7 @@ import Foundation
 
 enum NetworkError: Error {
     case noInternetConnection
+    case timeOut
     case unexpected
 }
 
@@ -26,6 +27,8 @@ extension NetworkError: CustomStringConvertible {
             return "No Internet"
         case .unexpected:
             return "Something went wrong"
+        case .timeOut:
+            return "Request time out. Please try again"
         }
     }
 }

@@ -39,14 +39,15 @@ class NetworkManager {
                                      coverId: coverId,
                                      firstSentense: $0.firstSentence?.joined(separator: " ") ?? "")
                 })
-            case .failure(_):
+            case .failure(let error):
                 if response.data == nil {
                     onFailure(NetworkError.noInternetConnection)
+                } else if error._code == NSURLErrorTimedOut {
+                    onFailure(NetworkError.timeOut)
                 } else {
                     onFailure(NetworkError.unexpected)
                 }
             }
         }
-        
     }
 }
