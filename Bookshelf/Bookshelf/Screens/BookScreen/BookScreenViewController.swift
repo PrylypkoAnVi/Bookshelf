@@ -47,30 +47,8 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     
     private func setBookData() {
         if let cover = cover {
-//            guard let img = UIImage(named: "loading") else { return }
-            
             self.viewModel.coverImage.asObservable().bind(to: cover.rx.image).disposed(by: disposeBag)
-            
-//            self.viewModel.cover.asObservable().map{$0.image).bind(onNext: { image in
-//                if let image = image {
-//                    cover.image = image
-//                }
-//            }).disposed(by: disposeBag)
-            
-            
-//            _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
-//                if let image = self.viewModel.cover.value.image {
-//                    UIView.transition(with: cover,
-//                                      duration: 0.5,
-//                                      options: .transitionCrossDissolve,
-//                                      animations: { cover.image = image },
-//                                      completion: nil)
-//
-//                    timer.invalidate()
-//                }
-//            }
         }
-                              
         self.name?.text = self.viewModel.book.title
         self.author?.text = self.viewModel.book.author
         self.publishYear?.text = "Publish year: \(self.viewModel.book.publishYear)"
