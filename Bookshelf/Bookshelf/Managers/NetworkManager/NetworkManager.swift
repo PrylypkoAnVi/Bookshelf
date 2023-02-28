@@ -12,11 +12,14 @@ import RxCocoa
 
 class NetworkManager {
     
-    var bookManager: BookManager {
-        return resolve(BookManager.self)
-    }
+    //MARK: -
+    //MARK: Properties
+    
     let bookSearchURLFirst = "https://openlibrary.org/search.json?q="
     let bookSearchURLValue = BehaviorRelay<String?>(value: nil)
+    
+    //MARK: -
+    //MARK: Methods
     
     func getBook(completion: @escaping ([BookFound]?) -> Void, onFailure: @escaping (NetworkError) -> ()) {
         let bookSearchURL = bookSearchURLFirst + (bookSearchURLValue.value ?? "")

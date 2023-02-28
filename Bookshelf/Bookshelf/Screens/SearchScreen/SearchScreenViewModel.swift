@@ -25,6 +25,9 @@ class SearchScreenViewModel {
     var book = BehaviorRelay<[BookFound]?>(value: [])
     private var disposeBag: DisposeBag = .init()
     
+    //MARK: -
+    //MARK: Init
+    
     init() {
         searchTextObservable
             .asObservable()
