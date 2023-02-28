@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class BookScreenViewController: UIViewController, StoryboardLoadable {
+class BookScreenViewController: UIViewController, StoryboardLoadable, UITextViewDelegate {
     
     //MARK: -
     //MARK: Properties
@@ -18,7 +18,7 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     @IBOutlet weak var author: UILabel?
     @IBOutlet weak var publishYear: UILabel?
     @IBOutlet weak var numberOfPages: UILabel?
-    @IBOutlet weak var firstSentense: UILabel?
+    @IBOutlet weak var firstSentense: UITextView?
     @IBOutlet weak var returnButton: UIButton?    
     
     public var viewModel: BookScreenViewModel!
@@ -35,6 +35,7 @@ class BookScreenViewController: UIViewController, StoryboardLoadable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.firstSentense?.delegate = self
         setBookData()
     }
     
