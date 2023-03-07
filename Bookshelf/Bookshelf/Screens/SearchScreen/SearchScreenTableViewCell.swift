@@ -11,7 +11,7 @@ import AlamofireImage
 
 class SearchScreenTableViewCell: UITableViewCell {
     
-    enum Sizes {
+    private enum Sizes {
         static let imageSize = CGSize(width: 100, height: 150)
         static let spacing: CGFloat = 5
         static let doubleSpacing: CGFloat = 10
@@ -20,21 +20,21 @@ class SearchScreenTableViewCell: UITableViewCell {
     //MARK: -
     //MARK: Properties
     
-    static let cellId = "cell"
-    internal var bookCover: UIImageView = {
+    internal static let cellId = "cell"
+    private var bookCover: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "noCover")
         image.contentMode = .scaleToFill
         return image
     }()
-    internal var bookName: UILabel = {
+    private var bookName: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.numberOfLines = 3
         return label
     }()
-    internal var bookAuthor: UILabel = {
+    private var bookAuthor: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
@@ -45,21 +45,21 @@ class SearchScreenTableViewCell: UITableViewCell {
     //MARK: -
     //MARK: Init
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override internal init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(bookCover)
         self.contentView.addSubview(bookName)
         self.contentView.addSubview(bookAuthor)
     }
    
-    required init?(coder: NSCoder) {
+    required internal init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     //MARK: -
     //MARK: Methods
     
-    func setData(_ data: BookFound) {
+    internal func setData(_ data: BookFound) {
         guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(data.coverId)" + ".jpg") else { return }
         self.bookCover.af.setImage(withURL: url,
                                    placeholderImage: UIImage(named: "loading"),
@@ -68,14 +68,14 @@ class SearchScreenTableViewCell: UITableViewCell {
         self.bookAuthor.text = data.author
     }
 
-    override func prepareForReuse() {
+    override internal func prepareForReuse() {
         self.bookCover.image = nil
         self.bookName.text = nil
         self.bookAuthor.text = nil
         super.prepareForReuse()
     }
     
-    override func layoutSubviews() {
+    override internal func layoutSubviews() {
         let width = safeAreaLayoutGuide.layoutFrame.width
         let height = safeAreaLayoutGuide.layoutFrame.height
         let nameLabelSize = CGSize(width: width - bookCover.frame.width - 20, height: (height / 3) - Sizes.doubleSpacing)

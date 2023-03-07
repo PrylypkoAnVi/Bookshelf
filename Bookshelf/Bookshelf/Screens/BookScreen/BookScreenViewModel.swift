@@ -15,16 +15,16 @@ class BookScreenViewModel {
     //MARK: -
     //MARK: Properties
     
-    var book: BookFound
-    var coverImage = BehaviorRelay<UIImage?>(value: nil)
-    var failureMessage = BehaviorRelay<String?>(value: nil)
-    var disposeBag: DisposeBag = .init()
-    let downloader = ImageDownloader()
+    internal var book: BookFound
+    internal var coverImage = BehaviorRelay<UIImage?>(value: nil)
+    internal var failureMessage = BehaviorRelay<String?>(value: nil)
+    private var disposeBag: DisposeBag = .init()
+    private let downloader = ImageDownloader()
     
     //MARK: -
     //MARK: Init
     
-    init(book: BookFound) {
+    internal init(book: BookFound) {
         self.book = book
         guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(book.coverId)" + ".jpg"),
               let loadingImage = UIImage(named: "loading")

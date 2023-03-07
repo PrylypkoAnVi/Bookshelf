@@ -14,14 +14,14 @@ class BookManager {
     //MARK: -
     //MARK: Public Properties
     
-    public var book = BehaviorRelay<[BookFound]?>(value: [])
-    public var failureMessage = BehaviorRelay<String?>(value: nil)
-    public var isLoading = BehaviorRelay<Bool?>(value: nil)
+    internal var book = BehaviorRelay<[BookFound]?>(value: [])
+    internal var failureMessage = BehaviorRelay<String?>(value: nil)
+    internal var isLoading = BehaviorRelay<Bool?>(value: nil)
     
     //MARK: -
     //MARK: Methods
     
-    func getBook() {
+    internal func getBook() {
         self.isLoading.accept(true)
         resolve(NetworkManager.self).getBook() { val in
             self.isLoading.accept(false)

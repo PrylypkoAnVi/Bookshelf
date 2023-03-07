@@ -13,15 +13,15 @@ class BookScreenViewController: UIViewController, StoryboardLoadable, UITextView
     //MARK: -
     //MARK: Properties
     
-    @IBOutlet weak var cover: UIImageView?
-    @IBOutlet weak var name: UILabel?
-    @IBOutlet weak var author: UILabel?
-    @IBOutlet weak var publishYear: UILabel?
-    @IBOutlet weak var numberOfPages: UILabel?
-    @IBOutlet weak var firstSentense: UITextView?
-    @IBOutlet weak var returnButton: UIButton?    
+    @IBOutlet weak private var cover: UIImageView?
+    @IBOutlet weak private var name: UILabel?
+    @IBOutlet weak private var author: UILabel?
+    @IBOutlet weak private var publishYear: UILabel?
+    @IBOutlet weak private var numberOfPages: UILabel?
+    @IBOutlet weak private var firstSentense: UITextView?
+    @IBOutlet weak private var returnButton: UIButton?
     
-    public var viewModel: BookScreenViewModel!
+    private var viewModel: BookScreenViewModel!
     private var disposeBag: DisposeBag = .init()
     
     //MARK: -
@@ -33,7 +33,7 @@ class BookScreenViewController: UIViewController, StoryboardLoadable, UITextView
         return contr
     }
     
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         self.firstSentense?.delegate = self
         setBookData()
@@ -60,7 +60,7 @@ class BookScreenViewController: UIViewController, StoryboardLoadable, UITextView
     //MARK: -
     //MARK: @IBAction
     
-    @IBAction func returnButtonPressed(_ sender: Any) {
+    @IBAction private func returnButtonPressed(_ sender: Any) {
         let searchScreenDestination = SearchScreenDestination()
         resolve(Router.self).route(to: searchScreenDestination)
     }

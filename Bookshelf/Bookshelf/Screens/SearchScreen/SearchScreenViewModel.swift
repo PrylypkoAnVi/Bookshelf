@@ -14,21 +14,21 @@ class SearchScreenViewModel {
     //MARK: -
     //MARK: Properties
     
-    var searchTextObservable = BehaviorRelay<String?>(value: nil)
+    internal var searchTextObservable = BehaviorRelay<String?>(value: nil)
 
-    var bookManager: BookManager {
+    internal var bookManager: BookManager {
         return resolve(BookManager.self)
     }
-    var networkManager: NetworkManager {
+    internal var book = BehaviorRelay<[BookFound]?>(value: [])
+    private var networkManager: NetworkManager {
         return resolve(NetworkManager.self)
     }
-    var book = BehaviorRelay<[BookFound]?>(value: [])
     private var disposeBag: DisposeBag = .init()
     
     //MARK: -
     //MARK: Init
     
-    init() {
+    internal init() {
         searchTextObservable
             .asObservable()
             .filter({ value in
@@ -64,7 +64,7 @@ class SearchScreenViewModel {
     //MARK: -
     //MARK: Methods
     
-    func setData() {
+    internal func setData() {
         bookManager.getBook()
     }
     

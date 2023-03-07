@@ -15,13 +15,13 @@ class NetworkManager {
     //MARK: -
     //MARK: Properties
     
-    let bookSearchURLFirst = "https://openlibrary.org/search.json?q="
-    let bookSearchURLValue = BehaviorRelay<String?>(value: nil)
+    private let bookSearchURLFirst = "https://openlibrary.org/search.json?q="
+    internal let bookSearchURLValue = BehaviorRelay<String?>(value: nil)
     
     //MARK: -
     //MARK: Methods
     
-    func getBook(completion: @escaping ([BookFound]?) -> Void, onFailure: @escaping (NetworkError) -> ()) {
+    internal func getBook(completion: @escaping ([BookFound]?) -> Void, onFailure: @escaping (NetworkError) -> ()) {
         let bookSearchURL = bookSearchURLFirst + (bookSearchURLValue.value ?? "")
         let bookSearchRequest = AF.request(bookSearchURL, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: HTTPHeaders.default)
         

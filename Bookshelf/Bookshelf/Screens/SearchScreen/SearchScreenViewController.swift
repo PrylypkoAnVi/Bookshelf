@@ -13,9 +13,9 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
     //MARK: -
     //MARK: Properties
     
-    @IBOutlet weak var searchBar: UISearchBar?
-    @IBOutlet weak var tableView: UITableView?
-    public var viewModel: SearchScreenViewModel!
+    internal var viewModel: SearchScreenViewModel!
+    @IBOutlet weak private var searchBar: UISearchBar?
+    @IBOutlet weak private var tableView: UITableView?
     private var disposeBag: DisposeBag = .init()
     
     //MARK: -
@@ -27,7 +27,7 @@ class SearchScreenViewController: UIViewController, StoryboardLoadable {
         return contr
     }
     
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         tableView?.delegate = self
         tableView?.dataSource = self
