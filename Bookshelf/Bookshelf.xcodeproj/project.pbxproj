@@ -30,9 +30,26 @@
 		5D626F5229917DBF00957800 /* BookFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D626F5129917DBF00957800 /* BookFound.swift */; };
 		5D626F552991865E00957800 /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D626F542991865E00957800 /* BookManager.swift */; };
 		5D626F5829918E5E00957800 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D626F5729918E5E00957800 /* NetworkError.swift */; };
+		5DC0FE2829B77128003859C5 /* BookScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0FE2729B77128003859C5 /* BookScreenViewModelTests.swift */; };
+		5DE8905729B890B700518770 /* ImageDownloaderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8905629B890B700518770 /* ImageDownloaderMock.swift */; };
+		5DE8905929B8928900518770 /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8905829B8928900518770 /* RouterMock.swift */; };
+		5DE8905B29B896E700518770 /* SearchScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8905A29B896E600518770 /* SearchScreenViewModelTests.swift */; };
+		5DE8905D29B8C73500518770 /* BookManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8905C29B8C73500518770 /* BookManagerTests.swift */; };
+		8988765EF62546546DA9D861 /* Pods_Bookshelf_BookshelfTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F60B1D99545834C3638F1F /* Pods_Bookshelf_BookshelfTests.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5DC0FE2929B77128003859C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D37FD6F29912490009242AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D37FD7629912490009242AF;
+			remoteInfo = Bookshelf;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		076E474F124B6247710740DF /* Pods-Bookshelf-BookshelfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookshelf-BookshelfTests.debug.xcconfig"; path = "Target Support Files/Pods-Bookshelf-BookshelfTests/Pods-Bookshelf-BookshelfTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5D37FD7729912491009242AF /* Bookshelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookshelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D37FD7A29912491009242AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D37FD7C29912491009242AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +74,15 @@
 		5D626F5129917DBF00957800 /* BookFound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFound.swift; sourceTree = "<group>"; };
 		5D626F542991865E00957800 /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
 		5D626F5729918E5E00957800 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		5DC0FE2529B77128003859C5 /* BookshelfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookshelfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DC0FE2729B77128003859C5 /* BookScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookScreenViewModelTests.swift; sourceTree = "<group>"; };
+		5DE8905629B890B700518770 /* ImageDownloaderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderMock.swift; sourceTree = "<group>"; };
+		5DE8905829B8928900518770 /* RouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterMock.swift; sourceTree = "<group>"; };
+		5DE8905A29B896E600518770 /* SearchScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewModelTests.swift; sourceTree = "<group>"; };
+		5DE8905C29B8C73500518770 /* BookManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManagerTests.swift; sourceTree = "<group>"; };
 		7FEF505C072DCEB6F2CD71A2 /* Pods-Bookshelf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookshelf.debug.xcconfig"; path = "Target Support Files/Pods-Bookshelf/Pods-Bookshelf.debug.xcconfig"; sourceTree = "<group>"; };
+		B8F60B1D99545834C3638F1F /* Pods_Bookshelf_BookshelfTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookshelf_BookshelfTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD420B87A263AE409C45A877 /* Pods-Bookshelf-BookshelfTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookshelf-BookshelfTests.release.xcconfig"; path = "Target Support Files/Pods-Bookshelf-BookshelfTests/Pods-Bookshelf-BookshelfTests.release.xcconfig"; sourceTree = "<group>"; };
 		E368727D70016E0C23B557D2 /* Pods-Bookshelf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookshelf.release.xcconfig"; path = "Target Support Files/Pods-Bookshelf/Pods-Bookshelf.release.xcconfig"; sourceTree = "<group>"; };
 		E6B9E31D4E2412D1E77E4ED1 /* Pods_Bookshelf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookshelf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -71,6 +96,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5DC0FE2229B77128003859C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8988765EF62546546DA9D861 /* Pods_Bookshelf_BookshelfTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				5D37FD7929912491009242AF /* Bookshelf */,
+				5DC0FE2629B77128003859C5 /* BookshelfTests */,
 				5D37FD7829912491009242AF /* Products */,
 				671537BA878E72087347A68D /* Pods */,
 				865A521B8102CBE7A1DD6F76 /* Frameworks */,
@@ -88,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				5D37FD7729912491009242AF /* Bookshelf.app */,
+				5DC0FE2529B77128003859C5 /* BookshelfTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,11 +245,33 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		5DC0FE2629B77128003859C5 /* BookshelfTests */ = {
+			isa = PBXGroup;
+			children = (
+				5DC0FE2729B77128003859C5 /* BookScreenViewModelTests.swift */,
+				5DE8905C29B8C73500518770 /* BookManagerTests.swift */,
+				5DE8905A29B896E600518770 /* SearchScreenViewModelTests.swift */,
+				5DE8905529B8908A00518770 /* Mock */,
+			);
+			path = BookshelfTests;
+			sourceTree = "<group>";
+		};
+		5DE8905529B8908A00518770 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				5DE8905629B890B700518770 /* ImageDownloaderMock.swift */,
+				5DE8905829B8928900518770 /* RouterMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		671537BA878E72087347A68D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				7FEF505C072DCEB6F2CD71A2 /* Pods-Bookshelf.debug.xcconfig */,
 				E368727D70016E0C23B557D2 /* Pods-Bookshelf.release.xcconfig */,
+				076E474F124B6247710740DF /* Pods-Bookshelf-BookshelfTests.debug.xcconfig */,
+				CD420B87A263AE409C45A877 /* Pods-Bookshelf-BookshelfTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -223,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				E6B9E31D4E2412D1E77E4ED1 /* Pods_Bookshelf.framework */,
+				B8F60B1D99545834C3638F1F /* Pods_Bookshelf_BookshelfTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -249,6 +307,26 @@
 			productReference = 5D37FD7729912491009242AF /* Bookshelf.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5DC0FE2429B77128003859C5 /* BookshelfTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DC0FE2D29B77129003859C5 /* Build configuration list for PBXNativeTarget "BookshelfTests" */;
+			buildPhases = (
+				49A015A56D0230D8A626F25C /* [CP] Check Pods Manifest.lock */,
+				5DC0FE2129B77128003859C5 /* Sources */,
+				5DC0FE2229B77128003859C5 /* Frameworks */,
+				5DC0FE2329B77128003859C5 /* Resources */,
+				E754A60754DB22F3E869EF49 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DC0FE2A29B77128003859C5 /* PBXTargetDependency */,
+			);
+			name = BookshelfTests;
+			productName = BookshelfTests;
+			productReference = 5DC0FE2529B77128003859C5 /* BookshelfTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -261,6 +339,10 @@
 				TargetAttributes = {
 					5D37FD7629912490009242AF = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					5DC0FE2429B77128003859C5 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 5D37FD7629912490009242AF;
 					};
 				};
 			};
@@ -278,6 +360,7 @@
 			projectRoot = "";
 			targets = (
 				5D37FD7629912490009242AF /* Bookshelf */,
+				5DC0FE2429B77128003859C5 /* BookshelfTests */,
 			);
 		};
 /* End PBXProject section */
@@ -294,9 +377,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5DC0FE2329B77128003859C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		49A015A56D0230D8A626F25C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bookshelf-BookshelfTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		866C2D1BFF8642AE8F5A1040 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,6 +448,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E754A60754DB22F3E869EF49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bookshelf-BookshelfTests/Pods-Bookshelf-BookshelfTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bookshelf-BookshelfTests/Pods-Bookshelf-BookshelfTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bookshelf-BookshelfTests/Pods-Bookshelf-BookshelfTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -364,7 +493,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5DC0FE2129B77128003859C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE8905B29B896E700518770 /* SearchScreenViewModelTests.swift in Sources */,
+				5DE8905929B8928900518770 /* RouterMock.swift in Sources */,
+				5DE8905D29B8C73500518770 /* BookManagerTests.swift in Sources */,
+				5DE8905729B890B700518770 /* ImageDownloaderMock.swift in Sources */,
+				5DC0FE2829B77128003859C5 /* BookScreenViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5DC0FE2A29B77128003859C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D37FD7629912490009242AF /* Bookshelf */;
+			targetProxy = 5DC0FE2929B77128003859C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5D37FD852991249A009242AF /* LaunchScreen.storyboard */ = {
@@ -558,6 +707,44 @@
 			};
 			name = Release;
 		};
+		5DC0FE2B29B77128003859C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 076E474F124B6247710740DF /* Pods-Bookshelf-BookshelfTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T2JMY76GZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.my.test.BookshelfTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bookshelf.app/Bookshelf";
+			};
+			name = Debug;
+		};
+		5DC0FE2C29B77128003859C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD420B87A263AE409C45A877 /* Pods-Bookshelf-BookshelfTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T2JMY76GZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.my.test.BookshelfTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bookshelf.app/Bookshelf";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -575,6 +762,15 @@
 			buildConfigurations = (
 				5D37FD8C2991249A009242AF /* Debug */,
 				5D37FD8D2991249A009242AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DC0FE2D29B77129003859C5 /* Build configuration list for PBXNativeTarget "BookshelfTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DC0FE2B29B77128003859C5 /* Debug */,
+				5DC0FE2C29B77128003859C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

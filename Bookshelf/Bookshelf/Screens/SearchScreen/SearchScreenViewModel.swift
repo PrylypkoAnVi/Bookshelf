@@ -15,11 +15,10 @@ class SearchScreenViewModel {
     //MARK: Properties
     
     internal var searchTextObservable = BehaviorRelay<String?>(value: nil)
-
-    internal var bookManager: BookManager {
+    internal var book = BehaviorRelay<[BookFound]?>(value: [])
+    private var bookManager: BookManager {
         return resolve(BookManager.self)
     }
-    internal var book = BehaviorRelay<[BookFound]?>(value: [])
     private var networkManager: NetworkManager {
         return resolve(NetworkManager.self)
     }
@@ -32,7 +31,7 @@ class SearchScreenViewModel {
         searchTextObservable
             .asObservable()
             .filter({ value in
-                (value?.count ?? 0) >= 3
+                (value?.count ?? 0) >= 2
             })
             .bind(to: networkManager.bookSearchURLValue)
             .disposed(by: disposeBag)

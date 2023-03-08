@@ -13,4 +13,12 @@ target 'Bookshelf' do
   pod 'XServiceLocator'
   pod 'AlamofireImage'
 
+  target 'BookshelfTests' do
+    use_frameworks!
+    
+    pod 'Alamofire'
+    pod 'AlamofireImage'
+
+  end
+
 end

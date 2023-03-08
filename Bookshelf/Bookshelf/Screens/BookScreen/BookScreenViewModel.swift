@@ -8,7 +8,20 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Alamofire
 import AlamofireImage
+
+protocol ImageDownloaderProtocol {
+   func downloadShort(_ urlRequest: URLRequestConvertible,
+                       completion: ((AFIDataResponse<Image>) -> Void)?)
+        -> RequestReceipt?
+}
+
+extension ImageDownloader: ImageDownloaderProtocol {
+    func downloadShort(_ urlRequest: Alamofire.URLRequestConvertible, completion: ((AlamofireImage.AFIDataResponse<AlamofireImage.Image>) -> Void)?) -> AlamofireImage.RequestReceipt? {
+        self.download(urlRequest, completion: completion)
+    }
+}
 
 class BookScreenViewModel {
     
@@ -19,13 +32,14 @@ class BookScreenViewModel {
     internal var coverImage = BehaviorRelay<UIImage?>(value: nil)
     internal var failureMessage = BehaviorRelay<String?>(value: nil)
     private var disposeBag: DisposeBag = .init()
-    private let downloader = ImageDownloader()
+    private let downloader: ImageDownloaderProtocol
     
     //MARK: -
     //MARK: Init
     
-    internal init(book: BookFound) {
+    internal init(book: BookFound, imageDownloader: ImageDownloaderProtocol = ImageDownloader()) {
         self.book = book
+        self.downloader = imageDownloader
         guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(book.coverId)" + ".jpg"),
               let loadingImage = UIImage(named: "loading")
         else {
@@ -34,7 +48,7 @@ class BookScreenViewModel {
         let urlRequest = URLRequest(url: url)
         self.coverImage.accept(loadingImage)
         
-        downloader.download(urlRequest, completion: { response in
+        _ = downloader.downloadShort(urlRequest, completion: { response in
             switch response.result {
             case .success(let image):
                 self.coverImage.accept(image)

@@ -20,3 +20,9 @@ public func resolve<T>(_ item: T.Type) -> T {
 public func register<T>(_ instance: T, for type: T.Type) {
     container = container.register(type, instance: instance)
 }
+
+#if DEBUG
+public func clearContainer() {
+    container = Container()
+}
+#endif
