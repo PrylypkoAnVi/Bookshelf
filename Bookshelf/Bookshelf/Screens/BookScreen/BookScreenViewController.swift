@@ -60,7 +60,7 @@ class BookScreenViewController: UIViewController, StoryboardLoadable, UITextView
     //MARK: -
     //MARK: @IBAction
     
-    @IBAction private func returnButtonPressed(_ sender: Any) {
+    @IBAction internal func returnButtonPressed(_ sender: Any) {
         let searchScreenDestination = SearchScreenDestination()
         resolve(Router.self).route(to: searchScreenDestination)
     }

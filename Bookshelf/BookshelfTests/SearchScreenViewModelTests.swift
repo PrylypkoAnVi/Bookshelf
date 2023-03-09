@@ -10,21 +10,6 @@ import XCTest
 
 final class SearchScreenViewModelTests: XCTestCase {
     var viewModel: SearchScreenViewModel!
-    let someBooks = [BookFound(
-        title: "title1",
-        author: "author1",
-        publishYear: 1,
-        numberOfPages: 1,
-        coverId: 1,
-        firstSentense: "sentense1"
-    ), BookFound(
-        title: "title2",
-        author: "author2",
-        publishYear: 2,
-        numberOfPages: 2,
-        coverId: 2,
-        firstSentense: "sentense2"
-    )]
     
     override func setUpWithError() throws {
         viewModel = SearchScreenViewModel()
@@ -32,11 +17,15 @@ final class SearchScreenViewModelTests: XCTestCase {
     
     override func tearDownWithError() throws {
         viewModel = nil
+        clearContainer()
     }
     
     func testBookIsNotNil() {
-        viewModel.book.accept(someBooks)
-        XCTAssertNotNil(viewModel.book.value)
+        XCTAssertNotNil(viewModel.book.value, "default value is []. should not fail")
+    }
+    
+    func testSearchTextObservableIsNil() {
+        XCTAssertNil(viewModel.searchTextObservable.value)
     }
     
 }
