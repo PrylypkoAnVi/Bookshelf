@@ -11,7 +11,7 @@ import RxCocoa
 @testable import Bookshelf
 
 class NetworkManagerMock: NetworkManagerProtocol {
-    var bookSearchURLValue = BehaviorRelay<String?>(value: "test?")
+    var bookSearchURLValue = BehaviorRelay<String?>(value: nil)
  
     public var completion: (([BookFound]?) -> Void)?
     public var onFailure: ((NetworkError) -> ())?
