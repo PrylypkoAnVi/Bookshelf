@@ -19,8 +19,8 @@ class SearchScreenViewModel {
     private var bookManager: BookManager {
         return resolve(BookManager.self)
     }
-    private var networkManager: NetworkManager {
-        return resolve(NetworkManager.self)
+    private var networkManager: NetworkManagerProtocol {
+        return resolve(NetworkManagerProtocol.self)
     }
     private var disposeBag: DisposeBag = .init()
     

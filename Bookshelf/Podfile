@@ -18,6 +18,7 @@ target 'Bookshelf' do
     
     pod 'Alamofire'
     pod 'AlamofireImage'
+    pod 'RxCocoa'
 
   end
 

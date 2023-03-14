@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func registerObjects() {
         let networkManager = NetworkManager()
-        register(networkManager, for: NetworkManager.self)
+        register(networkManager, for: NetworkManagerProtocol.self)
         let bookManager = BookManager()
         register(bookManager, for: BookManager.self)
     }

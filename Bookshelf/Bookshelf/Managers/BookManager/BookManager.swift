@@ -23,7 +23,7 @@ class BookManager {
     
     internal func getBook() {
         self.isLoading.accept(true)
-        resolve(NetworkManager.self).getBook() { val in
+        resolve(NetworkManagerProtocol.self).getBook() { val in
             self.isLoading.accept(false)
             self.book.accept(val ?? [])
         } onFailure: { error in

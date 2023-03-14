@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F00951458F761502D9421D6 /* Pods_Bookshelf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B9E31D4E2412D1E77E4ED1 /* Pods_Bookshelf.framework */; };
+		5D0F47B329BA1B9000A1D74B /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0F47B229BA1B9000A1D74B /* NetworkManagerMock.swift */; };
 		5D37FD7B29912491009242AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37FD7A29912491009242AF /* AppDelegate.swift */; };
 		5D37FD7D29912491009242AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37FD7C29912491009242AF /* SceneDelegate.swift */; };
 		5D37FD842991249A009242AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D37FD832991249A009242AF /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		076E474F124B6247710740DF /* Pods-Bookshelf-BookshelfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookshelf-BookshelfTests.debug.xcconfig"; path = "Target Support Files/Pods-Bookshelf-BookshelfTests/Pods-Bookshelf-BookshelfTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5D0F47B229BA1B9000A1D74B /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 		5D37FD7729912491009242AF /* Bookshelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookshelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D37FD7A29912491009242AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D37FD7C29912491009242AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			children = (
 				5DE8905629B890B700518770 /* ImageDownloaderMock.swift */,
 				5DE8905829B8928900518770 /* RouterMock.swift */,
+				5D0F47B229BA1B9000A1D74B /* NetworkManagerMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 			files = (
 				5DE8905B29B896E700518770 /* SearchScreenViewModelTests.swift in Sources */,
 				5DE8905929B8928900518770 /* RouterMock.swift in Sources */,
+				5D0F47B329BA1B9000A1D74B /* NetworkManagerMock.swift in Sources */,
 				5DE8905D29B8C73500518770 /* BookManagerTests.swift in Sources */,
 				5DE8905729B890B700518770 /* ImageDownloaderMock.swift in Sources */,
 				5DC0FE2829B77128003859C5 /* BookScreenViewModelTests.swift in Sources */,

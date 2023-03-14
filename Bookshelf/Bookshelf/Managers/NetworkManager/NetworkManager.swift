@@ -10,7 +10,12 @@ import Alamofire
 import RxSwift
 import RxCocoa
 
-class NetworkManager {
+protocol NetworkManagerProtocol {
+    var bookSearchURLValue: BehaviorRelay<String?> { get }
+    func getBook(completion: @escaping ([BookFound]?) -> Void, onFailure: @escaping (NetworkError) -> ())
+}
+
+class NetworkManager: NetworkManagerProtocol {
     
     //MARK: -
     //MARK: Properties

@@ -10,13 +10,17 @@ import XCTest
 
 final class SearchScreenViewModelTests: XCTestCase {
     var viewModel: SearchScreenViewModel!
+    var networkManager: NetworkManagerMock!
     
     override func setUpWithError() throws {
+        networkManager = NetworkManagerMock()
+        register(networkManager, for: NetworkManagerProtocol.self)
         viewModel = SearchScreenViewModel()
     }
     
     override func tearDownWithError() throws {
         viewModel = nil
+        networkManager = nil
         clearContainer()
     }
     
@@ -26,6 +30,14 @@ final class SearchScreenViewModelTests: XCTestCase {
     
     func testSearchTextObservableIsNil() {
         XCTAssertNil(viewModel.searchTextObservable.value)
+    }
+    
+    func testOnFailureIsNil() {
+        XCTAssertNil(networkManager.onFailure)
+    }
+    
+    func testCompletion() {
+        XCTAssertNotNil(networkManager.completion)
     }
     
 }
