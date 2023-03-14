@@ -31,6 +31,7 @@
 		5D626F5229917DBF00957800 /* BookFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D626F5129917DBF00957800 /* BookFound.swift */; };
 		5D626F552991865E00957800 /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D626F542991865E00957800 /* BookManager.swift */; };
 		5D626F5829918E5E00957800 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D626F5729918E5E00957800 /* NetworkError.swift */; };
+		5D9D7A8029C0A37600E4E61C /* BookManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D7A7F29C0A37600E4E61C /* BookManagerMock.swift */; };
 		5DC0FE2829B77128003859C5 /* BookScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0FE2729B77128003859C5 /* BookScreenViewModelTests.swift */; };
 		5DE8905729B890B700518770 /* ImageDownloaderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8905629B890B700518770 /* ImageDownloaderMock.swift */; };
 		5DE8905929B8928900518770 /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8905829B8928900518770 /* RouterMock.swift */; };
@@ -76,6 +77,7 @@
 		5D626F5129917DBF00957800 /* BookFound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFound.swift; sourceTree = "<group>"; };
 		5D626F542991865E00957800 /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
 		5D626F5729918E5E00957800 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		5D9D7A7F29C0A37600E4E61C /* BookManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManagerMock.swift; sourceTree = "<group>"; };
 		5DC0FE2529B77128003859C5 /* BookshelfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookshelfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC0FE2729B77128003859C5 /* BookScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookScreenViewModelTests.swift; sourceTree = "<group>"; };
 		5DE8905629B890B700518770 /* ImageDownloaderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderMock.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				5DE8905629B890B700518770 /* ImageDownloaderMock.swift */,
 				5DE8905829B8928900518770 /* RouterMock.swift */,
 				5D0F47B229BA1B9000A1D74B /* NetworkManagerMock.swift */,
+				5D9D7A7F29C0A37600E4E61C /* BookManagerMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				5DE8905B29B896E700518770 /* SearchScreenViewModelTests.swift in Sources */,
 				5DE8905929B8928900518770 /* RouterMock.swift in Sources */,
 				5D0F47B329BA1B9000A1D74B /* NetworkManagerMock.swift in Sources */,
+				5D9D7A8029C0A37600E4E61C /* BookManagerMock.swift in Sources */,
 				5DE8905D29B8C73500518770 /* BookManagerTests.swift in Sources */,
 				5DE8905729B890B700518770 /* ImageDownloaderMock.swift in Sources */,
 				5DC0FE2829B77128003859C5 /* BookScreenViewModelTests.swift in Sources */,

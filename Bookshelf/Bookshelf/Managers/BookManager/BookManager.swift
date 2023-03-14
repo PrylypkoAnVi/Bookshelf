@@ -9,7 +9,14 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class BookManager {
+protocol BookManagerProtocol {
+    var book: BehaviorRelay<[BookFound]?> { get }
+    var failureMessage: BehaviorRelay<String?> { get }
+    var isLoading: BehaviorRelay<Bool?> { get }
+    func getBook()
+}
+
+class BookManager: BookManagerProtocol {
     
     //MARK: -
     //MARK: Public Properties

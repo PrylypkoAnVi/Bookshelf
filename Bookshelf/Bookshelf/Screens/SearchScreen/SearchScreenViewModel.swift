@@ -16,8 +16,8 @@ class SearchScreenViewModel {
     
     internal var searchTextObservable = BehaviorRelay<String?>(value: nil)
     internal var book = BehaviorRelay<[BookFound]?>(value: [])
-    private var bookManager: BookManager {
-        return resolve(BookManager.self)
+    private var bookManager: BookManagerProtocol {
+        return resolve(BookManagerProtocol.self)
     }
     private var networkManager: NetworkManagerProtocol {
         return resolve(NetworkManagerProtocol.self)
