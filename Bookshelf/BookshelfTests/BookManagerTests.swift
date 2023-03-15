@@ -11,12 +11,27 @@ import XCTest
 final class BookManagerTests: XCTestCase {
     var bookManager: BookManager!
     var networkManager: NetworkManagerMock!
+    var someBooks = [BookFound(
+        title: "title1",
+        author: "author1",
+        publishYear: 1,
+        numberOfPages: 1,
+        coverId: 1,
+        firstSentense: "sentense1"
+    ), BookFound(
+        title: "title2",
+        author: "author2",
+        publishYear: 2,
+        numberOfPages: 2,
+        coverId: 2,
+        firstSentense: "sentense2"
+    )]
+    
     
     override func setUpWithError() throws {
         networkManager = NetworkManagerMock()
         register(networkManager, for: NetworkManagerProtocol.self)
         bookManager = BookManager()
-        register(bookManager, for: BookManager.self)
     }
     
     override func tearDownWithError() throws {
@@ -41,11 +56,21 @@ final class BookManagerTests: XCTestCase {
     func testGetBookErrorNoConnectionCatched() {
         XCTAssertNil(bookManager.isLoading.value)
         bookManager.getBook()
-        XCTAssertNotNil(bookManager.isLoading.value)
         XCTAssertTrue(bookManager.isLoading.value ?? false)
         networkManager.onFailure?(.noInternetConnection)
         XCTAssertFalse(bookManager.isLoading.value ?? true)
         XCTAssertEqual(bookManager.failureMessage.value, NetworkError.noInternetConnection.description)
+    }
+    
+    func testGetBookGetsBooks() {
+        XCTAssertNil(bookManager.isLoading.value)
+        bookManager.getBook()
+        XCTAssertTrue(bookManager.isLoading.value ?? false)
+        networkManager.completion?(someBooks)
+        XCTAssertFalse(bookManager.isLoading.value ?? true)
+        XCTAssertNil(bookManager.failureMessage.value)
+        XCTAssertEqual(bookManager.book.value, someBooks)
+        
     }
     
 }

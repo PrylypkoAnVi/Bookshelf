@@ -13,6 +13,21 @@ final class SearchScreenViewModelTests: XCTestCase {
     var networkManager: NetworkManagerMock!
     var bookManager: BookManagerMock!
     var router: RouterMock!
+    var someBooks = [BookFound(
+        title: "title1",
+        author: "author1",
+        publishYear: 1,
+        numberOfPages: 1,
+        coverId: 1,
+        firstSentense: "sentense1"
+    ), BookFound(
+        title: "title2",
+        author: "author2",
+        publishYear: 2,
+        numberOfPages: 2,
+        coverId: 2,
+        firstSentense: "sentense2"
+    )]
     
     override func setUpWithError() throws {
         networkManager = NetworkManagerMock()
@@ -53,19 +68,30 @@ final class SearchScreenViewModelTests: XCTestCase {
         XCTAssertEqual(bookManager.book.value, viewModel.book.value)
     }
     
-    func testBookManagerFailureMessageIsNil() {
+    func testBookManagerFailureMessage() {
         bookManager.failureMessage.accept("Test error")
         XCTAssertNotNil(router.error)
         XCTAssertTrue(router.show!)
     }
     
-    func testBookManagerIsLoadingIsNil() {
+    func testBookManagerIsLoading() {
         bookManager.isLoading.accept(true)
         XCTAssertTrue(router.show!)
     }
     
-    func testSetDataFunc() {
+    func testSetData() {
         viewModel.setData()
         XCTAssertNotEqual(bookManager.getBookCalled, 0)
+        bookManager.book.accept(someBooks)
+        XCTAssertEqual(viewModel.book.value, someBooks)
+        XCTAssertEqual(bookManager.book.value, viewModel.book.value)
     }
+    
+    func testSearchTextLetterCount() {
+        viewModel.searchTextObservable.accept("A")
+        XCTAssertNotEqual(viewModel.searchTextObservable.value, networkManager.bookSearchURLValue.value)
+        viewModel.searchTextObservable.accept("Aa")
+        XCTAssertEqual(viewModel.searchTextObservable.value, networkManager.bookSearchURLValue.value)
+    }
+    
 }
