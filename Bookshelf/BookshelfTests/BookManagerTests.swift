@@ -9,12 +9,14 @@ import XCTest
 @testable import Bookshelf
 
 final class BookManagerTests: XCTestCase {
-    var bookManager: BookManagerMock!
+    var bookManager: BookManager!
     var networkManager: NetworkManagerMock!
     
     override func setUpWithError() throws {
         networkManager = NetworkManagerMock()
-        bookManager = BookManagerMock()
+        register(networkManager, for: NetworkManagerProtocol.self)
+        bookManager = BookManager()
+        register(bookManager, for: BookManager.self)
     }
     
     override func tearDownWithError() throws {
@@ -36,18 +38,13 @@ final class BookManagerTests: XCTestCase {
         XCTAssertEqual(bookManager.book.value?.count, 0)
     }
     
-    func testGetBookFunc() {
-        bookManager.getBook()
-        XCTAssertNil(networkManager.completion)
-        XCTAssertNotEqual(bookManager.getBookCalled, 0)
-    }
-    
     func testGetBookErrorNoConnectionCatched() {
         XCTAssertNil(bookManager.isLoading.value)
         bookManager.getBook()
-        XCTAssertFalse(bookManager.isLoading.value ?? false)
+        XCTAssertNotNil(bookManager.isLoading.value)
+        XCTAssertTrue(bookManager.isLoading.value ?? false)
         networkManager.onFailure?(.noInternetConnection)
-        XCTAssertFalse(bookManager.isLoading.value ?? false)
+        XCTAssertFalse(bookManager.isLoading.value ?? true)
         XCTAssertEqual(bookManager.failureMessage.value, NetworkError.noInternetConnection.description)
     }
     
